@@ -5,12 +5,13 @@
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
+    "start": "nuxt start",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "bcrypt": "^5.1.1",
+    "bcryptjs": "^2.4.3",
     "jsonwebtoken": "^9.0.2",
     "mysql2": "^3.11.3",
     "nuxt": "^3.13.1",

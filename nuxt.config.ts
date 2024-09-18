@@ -11,7 +11,7 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     public: {
-      apiUrl: process.env.VITE_API_URL,
+      apiUrl: process.env.VITE_API_URL || 'http://localhost:3000',
     },
     private:{
       JWT_SECRET: process.env.JWT_SECRET,
@@ -25,5 +25,9 @@ export default defineNuxtConfig({
       ssr: true,
       appMiddleware: ["auth"],
     }
+  },
+  devServer:{
+    port: 3001,
+    host: '0'
   }
 });

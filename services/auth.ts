@@ -17,4 +17,3 @@
       return { success: false, message: 'Błąd logowania' };
     }
   };
-  

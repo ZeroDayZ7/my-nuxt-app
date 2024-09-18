@@ -2,7 +2,10 @@
 import { defineEventHandler, readBody } from "h3";
 import pool from "~/server/db"; // Importuj skonfigurowane połączenie
 import jwt from "jsonwebtoken";
-import bcrypt from "bcrypt"; // Jeśli używasz bcrypt do haszowania haseł
+// import bcrypt from "bcrypt"; // Jeśli używasz bcrypt do haszowania haseł
+import bcrypt from 'bcryptjs';
+
+
 
 const JWT_SECRET = useRuntimeConfig().private.JWT_SECRET;
 const COOKIE_NAME = useRuntimeConfig().private.COOKIE_NAME; // Nazwa ciasteczka
