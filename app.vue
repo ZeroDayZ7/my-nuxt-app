@@ -1,8 +1,16 @@
 <template>
   <div>
+     <UModals />
+     
     <NuxtLayout :name="layout">
-      <NuxtPage />
+      <UContainer>
+        <NuxtPage />
+      </UContainer>
     </NuxtLayout>
+
+    <!-- <UModals /> -->
+    <!-- <UNotifications /> -->
+    <!-- <UButton /> -->
   </div>
 </template>
 

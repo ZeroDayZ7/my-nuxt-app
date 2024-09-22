@@ -11,9 +11,9 @@
           <input type="password" v-model="password" id="password" placeholder="Wprowadź hasło" required />
         </div>
         <button type="submit">Zaloguj się</button>
-        <p class="forgot-password">
+        <!-- <p class="forgot-password">
           <a href="#">Zapomniałeś hasła?</a>
-        </p>
+        </p> -->
       </form>
     </div>
   </div>
@@ -22,7 +22,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
-import { loginUser } from '~/services/auth';
+import { loginUser } from '~/services/auth/login';
 
 
 const email = ref('yovasec567@fincainc.com');
@@ -59,19 +59,14 @@ const handleLogin = async () => {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  /* height: 100vh; */
 }
 
 .login-box {
   width: 300px;
-  padding: 20px;
+  padding: 40px 0px 40px 0px;
   border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   text-align: center;
-}
-
-h2 {
-  margin-bottom: 20px;
 }
 
 .form-group {
@@ -90,27 +85,13 @@ input {
 button {
   width: 100%;
   padding: 10px;
-  background-color: #007bff;
-  color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  transition: 200ms
 }
 
 button:hover {
   background-color: #0056b3;
-}
-
-.forgot-password {
-  margin-top: 15px;
-}
-
-a {
-  color: #007bff;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
 }
 </style>

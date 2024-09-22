@@ -1,35 +1,12 @@
 :root {
   --background-color: #141414;
   --font-color: white;
+  --link-color: rgb(0, 221, 218);
+  --link-color-hover: rgb(0, 147, 221);
   --font-size: 14px;
-  --primary: #256273;
-  --box-shadow: var(--primary);
-  --font-color-active: #25cece;
-  --font-color-hover: #43b2c1;
 
-  --primary-transparent: rgba(37, 98, 115, 0.9);
-
-  --primary-color: #ffffff;
-
-  --colorSky: rgb(12, 205, 227);
-  --RGBA-WHITE-50: rgba(255, 255, 255, 0.5);
-  --RGBA-BLACK-50: rgba(0, 0, 0, 0.5);
-  --RGBA-BLACK-90: rgba(0, 0, 0, 0.9);
-  --RGBA-BLACK-100: rgba(0, 0, 0, 1);
-  --white: rgb(255, 255, 255);
-  --black: rgb(0, 0, 0);
   --TRANSITION: 300ms;
 }
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  position: relative;
-  font-weight: normal;
-}
-
 html {
   /* user-select: none; */
 }
@@ -54,10 +31,21 @@ body {
 }
 
 a{
-    color: green;
+    color: var(--link-color);
     text-decoration: none;
 }
+a:hover{
+  color: var(--link-color-hover);
+}
 
+.fr{
+  display: flex;
+  flex-direction: row;
+}
+
+button{
+  /* background-color: transparent; */
+}
 
 
 /* Dostosowanie wyglądu paska przewijania dla przeglądarek opartych na silniku Chromium */

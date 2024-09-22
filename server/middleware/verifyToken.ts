@@ -1,7 +1,6 @@
 // server/middleware/verifyToken.ts
 import {
   defineEventHandler,
-  getRequestHeaders,
   parseCookies,
 } from "h3";
 import jwt from "jsonwebtoken";

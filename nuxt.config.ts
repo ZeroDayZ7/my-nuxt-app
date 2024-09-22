@@ -1,11 +1,14 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   // modules: ['nuxt-security'],
+  modules: ['@nuxt/ui'],
   css: [
     "@/assets/main.css", // Ścieżka do pliku CSS
   ],
+  srcDir: 'src/',
   alias: {
     assets: "/<rootDir>/assets",
+    '@C': "<rootDir>/components/"
   },
   compatibilityDate: "2024-04-03",
   devtools: { enabled: true },
@@ -36,6 +39,10 @@ export default defineNuxtConfig({
       ssr: false,
       appMiddleware: ["auth"],
     },
+    "/dashbaord/":{
+      ssr: true,
+      appMiddleware: ["auth"],
+    }
   },
   // components: [{
   //   path: '~/components',
