@@ -14,7 +14,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   ssr: true,
   app: {
-    baseURL: process.env.NUXT_APP_BASE_URL || "/",
+    baseURL: "/my-nuxt-app/",
   },
   runtimeConfig: {
     apiSecret: "123",
