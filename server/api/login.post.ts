@@ -5,14 +5,14 @@ import jwt from "jsonwebtoken";
 // import bcrypt from "bcrypt"; // Jeśli używasz bcrypt do haszowania haseł
 import bcrypt from 'bcryptjs';
 
-
-
-const JWT_SECRET = useRuntimeConfig().private.JWT_SECRET;
-const COOKIE_NAME = useRuntimeConfig().private.COOKIE_NAME; // Nazwa ciasteczka
-const COOKIE_MAX_AGE = parseInt(useRuntimeConfig().private.COOKIE_MAX_AGE, 10); // Maksymalny czas życia ciasteczka
-const COOKIE_SECURE = useRuntimeConfig().private.COOKIE_SECURE;
+const config = useRuntimeConfig();
+const JWT_SECRET = config.JWT_SECRET;
+const COOKIE_NAME = config.COOKIE_NAME;
+const COOKIE_MAX_AGE = config.COOKIE_MAX_AGE;
+const COOKIE_SECURE = config.COOKIE_SECURE;
 
 export default defineEventHandler(async (event) => {
+  console.log('Received request for /api/login');
   const body = await readBody(event);
   const { email, password } = body;
 

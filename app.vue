@@ -1,10 +1,13 @@
 <template>
   <div>
+    <NuxtLayout :name="layout">
       <NuxtPage />
+    </NuxtLayout>
   </div>
 </template>
 
 <script setup>
+const layout = "default";
 // Możesz dodać logikę skryptu tutaj, jeśli jest potrzebna
 </script>
 

@@ -1,8 +1,10 @@
-import { defineEventHandler } from 'h3';
+import { defineEventHandler, parseCookies } from 'h3';
 import jwt from 'jsonwebtoken';
 import pool from '~/server/db'; // Importuj połączenie z bazą danych
 
-const JWT_SECRET = useRuntimeConfig().private.JWT_SECRET;
+const config = useRuntimeConfig();
+const JWT_SECRET = config.JWT_SECRET;
+
 
 export default defineEventHandler(async (event) => {
   console.log('userRole');

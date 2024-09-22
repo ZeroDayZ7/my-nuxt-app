@@ -4,6 +4,9 @@
     try {
       const response = await $fetch(`${useRuntimeConfig().public.apiUrl}/api/login`, {
         method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
         body: {
           email,
           password,
