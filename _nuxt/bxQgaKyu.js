@@ -1,0 +1,1 @@
+import{_ as a,c as r,a as n,o as s}from"./DG8X6CVM.js";const t={};function o(l,e){return s(),r("div",null,e[0]||(e[0]=[n("h1",null,"Strona nie znaleziona (404)",-1),n("p",null,"Przepraszamy, ale strona, której szukasz, nie istnieje.",-1)]))}const i=a(t,[["render",o]]);export{i as default};

@@ -1,0 +1,1 @@
+{"id":"84f4be76-a486-4fc6-a27a-391e9590e32f","timestamp":1727010657331,"matcher":{"static":{"/":{"prerender":true},"/dashbaord":{"appMiddleware":{"auth":true}}},"wildcard":{"/admin":{"appMiddleware":{"auth":true}}},"dynamic":{}},"prerendered":[]}

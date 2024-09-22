@@ -1,0 +1,1 @@
+import{e as o,i as a,o as s,c as n,a as r}from"./DG8X6CVM.js";import{u}from"./BZK9w8Qm.js";const c=o({__name:"about",setup(l){const t=a();return u({title:`${t.meta.title}`}),(m,e)=>(s(),n("div",null,e[0]||(e[0]=[r("h1",null,"Strona About",-1)])))}});export{c as default};
