@@ -1,0 +1,1 @@
+import{_ as o,c as t,a as n,o as r}from"./CbWe9892.js";const a={};function s(l,e){return r(),t("div",null,e[0]||(e[0]=[n("h1",null,"200 - Strona znaleziona",-1),n("p",null,"To jest treść domyślnej strony 200.",-1)]))}const _=o(a,[["render",s]]);export{_ as default};
