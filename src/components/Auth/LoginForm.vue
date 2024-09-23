@@ -1,49 +1,36 @@
 <template>
   <div class="login-container">
     <div class="login-box">
+      <p v-if="messageError" class="error">{{ messageError }}</p>
       <form @submit.prevent="handleLogin">
         <UFormGroup label="Email">
-          <UInput 
-            placeholder="E-mail"
-            icon="i-heroicons-envelope"
-            autocomplete="on"
-            :autofocus=true
-
-            />
+          <UInput placeholder="E-mail" icon="i-heroicons-envelope" autocomplete="email" v-model="email" :autofocus=true
+            required />
         </UFormGroup>
-        <p v-if="emailError" class="error">{{ emailError }}</p>
-    <div class="form-group">
-      <UFormGroup label="Password">
-          <UInput 
-            placeholder="Hasło"
-            icon="i-heroicons-lock-closed"
-            autocomplete="on"
-            autcomplete="current-password"
-            type="password"
-
-            />
-        </UFormGroup>
-      <p v-if="passwordError" class="error">{{ passwordError }}</p>
+        <div class="form-group">
+          <UFormGroup label="Password">
+            <UInput placeholder="Hasło" icon="i-heroicons-lock-closed" autcomplete="current-password" type="password"
+              v-model="password" required />
+          </UFormGroup>
+        </div>
+        <UButton class="flex items-center justify-center" :loading="isSubmitting" type="submit">{{!isSubmitting ? 'Zaloguj' : ''}}</UButton>
+        <p v-if="loginError" class="error">{{ loginError }}</p>
+      </form>
     </div>
-    <button type="submit">Zaloguj się</button>
-    <p v-if="loginError" class="error">{{ loginError }}</p>
-    </form>
-  </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import { useRouter } from 'vue-router';
 import { loginUser } from '~/services/auth/login';
 
-const email = ref('');
-const password = ref('');
-const router = useRouter();
+const email = ref('a@a.pl');
+const password = ref('123456');
 
-const emailError = ref('');
-const passwordError = ref('');
+const messageError = ref('');
 const loginError = ref('');
+
+const isSubmitting = ref(false);
 
 const validateEmail = (email: string) => {
   const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -55,31 +42,40 @@ const validatePassword = (password: string) => {
 };
 
 const handleLogin = async () => {
-  emailError.value = '';
-  passwordError.value = '';
+  if (isSubmitting.value) return;  // Zapobiegaj wielokrotnemu wysyłaniu
+
+  isSubmitting.value = true;
+  messageError.value = '';
   loginError.value = '';
 
-  if (!validateEmail(email.value)) {
-    emailError.value = 'Wprowadź prawidłowy adres email.';
+  if (!validateEmail(email.value) || !validatePassword(password.value)) {
+    messageError.value = 'Podaj poprawne dane.';
+    isSubmitting.value = false;
     return;
   }
 
-  if (!validatePassword(password.value)) {
-    passwordError.value = 'Hasło musi mieć co najmniej 6 znaków.';
-    return;
-  }
-
+  setTimeout(() => {
+    isSubmitting.value = false;
+    
+  }, 2000);
+  return;
   // Zrób zapytanie do API o logowanie
-  const response = await loginUser(email.value, password.value);
+  try {
+    const response = await loginUser(email.value, password.value);
 
-  if (response.status === 200 && response.token) {
-    // Ustaw isAuthenticated w Vuex lub w stanie aplikacji
-    const isAuthenticated = useState('isAuthenticated');
-    isAuthenticated.value = true;
-    router.push('/'); // Przekierowanie po udanym logowaniu
-  } else {
-    // Obsługa błędów logowania
-    loginError.value = 'Nieprawidłowy login lub hasło.';
+    if (response.status === 200 && response.token) {
+      // Ustaw isAuthenticated w Vuex lub w stanie aplikacji
+      const isAuthenticated = useState('isAuthenticated');
+      isAuthenticated.value = true;
+    } else {
+      // Obsługa błędów logowania
+      messageError.value = 'Nieprawidłowy login lub hasło.';
+      isSubmitting.value = false;
+      return;
+    }
+  } finally {
+    isSubmitting.value = false;
+    return;
   }
 };
 </script>
