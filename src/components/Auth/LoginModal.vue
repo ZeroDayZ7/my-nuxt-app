@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<!-- <script setup lang="ts">
 const isOpen = ref(false)
 </script>
 
@@ -30,7 +30,7 @@ const isOpen = ref(false)
 .iconify {
   color: black;
 }
-</style>
+</style> -->
 
 <!-- <script setup lang="ts">
 const isOpen = ref(false)
@@ -38,11 +38,11 @@ const isOpen = ref(false)
 
 
 
-<!-- <script setup lang="ts">
+<script setup lang="ts">
 const isOpen = ref(false)
-</script> -->
+</script>
 
-<!-- <template>
+ <template>
   <div>
     <UButton label="Open" @click="isOpen = true" />
 
@@ -72,4 +72,4 @@ const isOpen = ref(false)
   </div>
 </template>
 
- -->
+ 
