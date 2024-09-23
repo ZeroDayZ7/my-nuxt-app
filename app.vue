@@ -1,10 +1,10 @@
 <template>
   <div>
-
-    <NuxtLayout :name="layout">
+    <UContainer>
+      <NuxtLayout :name="layout">
         <NuxtPage />
-    </NuxtLayout>
-
+      </NuxtLayout>
+    </UContainer>
 
     <!-- <UModals /> -->
     <!-- <UNotifications /> -->

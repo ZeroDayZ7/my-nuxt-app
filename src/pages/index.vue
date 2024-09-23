@@ -1,6 +1,6 @@
 <template>
   <div>
-    <UContainer>
+   
     <UProgress 
       v-show="isLoading"
       size="xs" 
@@ -11,7 +11,7 @@
       <PartialsTopbar />
       <!-- <Info24 />   -->
     </div>
-  </UContainer>
+ 
   </div>
 </template>
 
