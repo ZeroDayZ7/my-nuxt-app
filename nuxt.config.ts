@@ -16,6 +16,19 @@ export default defineNuxtConfig({
   app: {
     // baseURL: "/",
     baseURL: "/my-nuxt-app/",
+    head:{
+      link: [
+        {
+          rel: 'stylesheet',
+          href: 'https://cdn.jsdelivr.net/npm/heroicons-css@0.1.1/heroicons.min.css'
+        }
+      ],
+      script: [
+        {
+          src: 'https://cdn.jsdelivr.net/npm/heroicons-css@0.1.1/heroicons.min.js'       
+        }
+      ]
+    }
   },
   runtimeConfig: {
     apiSecret: "123",
