@@ -12,10 +12,12 @@ const isOpen = ref(false)
       <div class="p-4">
         <div class="flex items-center justify-between">
           <UButton 
-            color="black"
-            variant="ghost" 
+            color="white"
+            variant="ghost"
+            icon="i-heroicons-pencil-square"
             class="-my-1 bg-red-800"
-            @click="isOpen = false" >
+            @click="isOpen = false"
+            >
             X
           <!-- <UIcon name="i-heroicons-x-mark-20-solid"/> -->
           </UButton>
