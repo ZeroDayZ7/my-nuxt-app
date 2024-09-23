@@ -30,7 +30,7 @@ header {
 
 header div,
 .mrg15 {
-  margin-left: 2px;
-  margin-right: 2px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 </style>

@@ -19,7 +19,8 @@
     "nuxt": "^3.13.2",
     "nuxt-security": "^2.0.0-rc.9",
     "vue": "latest",
-    "vue-router": "latest"
+    "vue-router": "latest",
+    "vuex": "^4.0.2"
   },
   "devDependencies": {
     "@types/jsonwebtoken": "^9.0.7",

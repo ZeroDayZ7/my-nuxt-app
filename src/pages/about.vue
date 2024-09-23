@@ -1,15 +1,4 @@
 <script setup lang="ts">
-definePageMeta({
-  title: 'Coś o mnie'
-})
-
-const route = useRoute()
-
-useHead({
-  title: `${route.meta.title}`
-})
-
-const isOpen = ref(false)
 
 const items = [{
   label: 'Getting Started',
@@ -38,11 +27,25 @@ const items = [{
   icon: 'i-heroicons-wrench-screwdriver',
   content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque elit, tristique placerat feugiat ac, facilisis vitae arcu. Proin eget egestas augue. Praesent ut sem nec arcu pellentesque aliquet. Duis dapibus diam vel metus tempus vulputate.'
 }]
+
+const isLoading = useLoading();
+const isOpen = ref(false)
+
+const handleAboutClick = () => {
+  isLoading.value = true;
+
+  // Symulacja dłuższego ładowania
+  setTimeout(() => {
+    isLoading.value = false;
+    isOpen.value = true;
+  }, 2000);
+
+};
 </script>
 
 <template>
   <div>
-    <UButton label="o Nas" @click="isOpen = true" />
+    <UButton label="o Nas" @click="handleAboutClick"/>
 
     <UModal v-model="isOpen" :ui="{
       container: 'min-h-0 lg:min-h-full'
