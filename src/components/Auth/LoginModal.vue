@@ -12,7 +12,7 @@ const isOpen = ref(false)
       <div class="p-4">
         <div class="flex items-center justify-between">
           <UButton 
-            color="red" 
+            color="gray" 
             variant="ghost" 
             icon="i-heroicons-x-mark-20-solid" 
             class="-my-1 absolute right-0 top-0 p-3"
