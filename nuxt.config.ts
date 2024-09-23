@@ -6,7 +6,12 @@ export default defineNuxtConfig({
     "@/assets/main.css", // Ścieżka do pliku CSS
   ],
   build: {
-    transpile: ['@headlessui/vue']},
+    transpile: 
+    [
+      '@headlessui/vue',
+      '@heroicons/vue'
+    ]
+  },
   srcDir: "src/",
   alias: {
     assets: "/<rootDir>/assets",
