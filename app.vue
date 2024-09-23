@@ -1,6 +1,6 @@
 <template>
   <div>
-     <UModals />
+     <!-- <UModals /> -->
      
     <NuxtLayout :name="layout">
       <UContainer>

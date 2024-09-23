@@ -14,12 +14,13 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   ssr: true,
   app: {
+    // baseURL: "/",
     baseURL: "/my-nuxt-app/",
   },
   runtimeConfig: {
     apiSecret: "123",
     public: {
-      apiUrl: process.env.VITE_API_URL || "http://localhost:3000",
+      apiUrl: process.env.VITE_API_URL || "http://localhost:3001",
       apiBase: "/api",
     },
   },

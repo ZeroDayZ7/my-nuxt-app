@@ -2,7 +2,7 @@
   <div>
     <!-- <UProgress animation="carousel" /> -->
     <PartialsTopbar />
-    <Info24 />  
+    <!-- <Info24 />   -->
   </div>
 </template>
 
