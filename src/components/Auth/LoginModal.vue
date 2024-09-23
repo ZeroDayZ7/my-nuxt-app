@@ -14,9 +14,11 @@ const isOpen = ref(false)
           <UButton 
             
             variant="ghost" 
-            icon="i-heroicons-x-mark-20-solid" 
+            
             class="-my-1 bg-red-800"
-            @click="isOpen = false" />
+            @click="isOpen = false" >
+          <UIcon name="i-heroicons-x-mark-20-solid"/>
+          </UButton>
 
         </div>
         <AuthLoginForm />
