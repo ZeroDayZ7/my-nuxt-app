@@ -64,7 +64,7 @@ const handleLogin = async () => {
 
 .login-box {
   width: 300px;
-  padding: 40px 0px 40px 0px;
+  /* padding: 40px 0px 40px 0px; */
   border-radius: 8px;
   text-align: center;
 }
