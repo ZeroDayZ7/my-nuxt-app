@@ -7,21 +7,27 @@ const isLogout = ref(false);
 const loadTime = ref(0);
 const loadingMenu = ref(false);
 
-const openMenu = async () => {
+const renderStartTime = ref(0);
+const renderEndTime = ref(0);
+
+const showMenu = async () => {
   // Rozpoczynamy mierzenie czasu
   const startTime = performance.now();
   loadingMenu.value = true;
+  renderStartTime.value = startTime;
 
   try {
     // Poczekaj na zakończenie cyklu renderowania, aby upewnić się, że modal w pełni się załadował
     await nextTick();
-
     // Dodaj niewielkie opóźnienie, aby symulować opóźnienia w środowisku produkcyjnym
-    // await new Promise(resolve => setTimeout(resolve, 1000));
-
+    await new Promise(resolve => setTimeout(resolve, 100));
+    isOpen.value = true;
+    await nextTick(); // czeka na otwarcie modalnego
+    renderEndTime.value = performance.now();
+    console.log(`Rzeczywisty czas renderowania modalnego: ${(renderEndTime.value - renderStartTime.value) / 1000} sekund`);
   } finally {
     // Koniec mierzenia czasu
-    isOpen.value = true;
+    
     const endTime = performance.now();
     loadTime.value = (endTime - startTime) / 1000; // Czas w sekundach
     loadingMenu.value = false;
@@ -44,7 +50,7 @@ const handleLogoutNo = () => {
 
 <template>
   <div>
-    <UButton icon="i-heroicons-bars-arrow-down" label="MENU" @click="openMenu" :loading="loadingMenu"/>
+    <UButton icon="i-heroicons-bars-arrow-down" label="MENU" @click="showMenu" :loading="loadingMenu"/>
     <!-- Główny Modal Menu -->
     <UModal v-model="isOpen" fullscreen prevent-close>
       <UCard :ui="{
