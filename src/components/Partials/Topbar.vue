@@ -5,7 +5,7 @@
     </div>
     <div class="tbpanel">
       <div class="fr">
-        <NuxtLink to="/about">o Nas</NuxtLink>
+        <About />
         <div class="mrg15"></div>
         <LoginModal />
       </div>
@@ -14,6 +14,7 @@
 </template>
 
 <script setup lang="ts">
+import About from '~/pages/about.vue';
 import LoginModal from '../Auth/LoginModal.vue';
 
 
@@ -24,14 +25,12 @@ header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
-
-  border-bottom: 1px solid white;
+  align-items: center;  
 }
 
 header div,
 .mrg15 {
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: 2px;
+  margin-right: 2px;
 }
 </style>

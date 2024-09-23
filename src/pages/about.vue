@@ -6,9 +6,10 @@ definePageMeta({
 const route = useRoute()
 
 useHead({
-    title: `${route.meta.title}`
+  title: `${route.meta.title}`
 })
 
+const isOpen = ref(false)
 
 const items = [{
   label: 'Getting Started',
@@ -40,5 +41,20 @@ const items = [{
 </script>
 
 <template>
-  <UAccordion :items="items" />
+  <div>
+    <UButton label="o Nas" @click="isOpen = true" />
+
+    <UModal v-model="isOpen" :ui="{
+      container: 'min-h-0 lg:min-h-full'
+    }">
+      <div class="p-4">
+        <div class="flex items-center justify-between">
+        </div>
+        <UAccordion 
+          size="lg"
+          :items="items"
+        />
+      </div>
+    </UModal>
+  </div>
 </template>

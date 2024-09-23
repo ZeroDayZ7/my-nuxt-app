@@ -5,10 +5,10 @@ export default defineNuxtConfig({
   css: [
     "@/assets/main.css", // Ścieżka do pliku CSS
   ],
-  srcDir: 'src/',
+  srcDir: "src/",
   alias: {
     assets: "/<rootDir>/assets",
-    '@C': "<rootDir>/components/"
+    "@C": "<rootDir>/components/",
   },
   compatibilityDate: "2024-04-03",
   devtools: { enabled: true },
@@ -16,6 +16,15 @@ export default defineNuxtConfig({
   app: {
     // baseURL: "/",
     baseURL: "/my-nuxt-app/",
+    // head: {
+    //   link: [
+    //     {
+    //       rel: "icon",
+    //       type: "image/x-icon",
+    //       href: "/favicon.ico",
+    //     },
+    //   ],
+    // },
     // head:{
     //   link: [
     //     {
@@ -25,7 +34,7 @@ export default defineNuxtConfig({
     //   ],
     //   script: [
     //     {
-    //       src: 'https://cdn.jsdelivr.net/npm/heroicons-css@0.1.1/heroicons.min.js'       
+    //       src: 'https://cdn.jsdelivr.net/npm/heroicons-css@0.1.1/heroicons.min.js'
     //     }
     //   ]
     // }
@@ -53,10 +62,10 @@ export default defineNuxtConfig({
       ssr: false,
       appMiddleware: ["auth"],
     },
-    "/dashbaord/":{
+    "/dashbaord/": {
       ssr: true,
       appMiddleware: ["auth"],
-    }
+    },
   },
   // components: [{
   //   path: '~/components',
