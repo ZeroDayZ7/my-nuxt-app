@@ -5,6 +5,9 @@ export default defineNuxtConfig({
   css: [
     "@/assets/main.css", // Ścieżka do pliku CSS
   ],
+  ui:{
+    global: true
+  },
   build: {
     transpile: 
     [
