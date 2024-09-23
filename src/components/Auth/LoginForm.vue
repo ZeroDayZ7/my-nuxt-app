@@ -19,6 +19,7 @@
             icon="i-heroicons-lock-closed"
             autocomplete="on"
             autcomplete="current-password"
+            type="password"
 
             />
         </UFormGroup>
