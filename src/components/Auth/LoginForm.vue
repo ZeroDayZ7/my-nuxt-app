@@ -2,34 +2,32 @@
   <div class="login-container">
     <div class="login-box">
       <form @submit.prevent="handleLogin">
-        <div class="form-group">
-          <label for="email">Email:</label>
-          <input
-            type="email"
-            v-model="email"
-            id="email"
-            placeholder="Wprowadź email"
-            autocomplete="email"
-            required
-          />
-          <p v-if="emailError" class="error">{{ emailError }}</p>
-        </div>
-        <div class="form-group">
-          <label for="password">Hasło:</label>
-          <input
-            type="password"
-            v-model="password"
-            id="password"
-            placeholder="Wprowadź hasło"
-            autocomplete="current-password"
-            required
-          />
-          <p v-if="passwordError" class="error">{{ passwordError }}</p>
-        </div>
-        <button type="submit">Zaloguj się</button>
-        <p v-if="loginError" class="error">{{ loginError }}</p>
-      </form>
+        <UFormGroup label="Email">
+          <UInput 
+            placeholder="E-mail"
+            icon="i-heroicons-envelope"
+            autocomplete="on"
+            :autofocus=true
+
+            />
+        </UFormGroup>
+        <p v-if="emailError" class="error">{{ emailError }}</p>
+    <div class="form-group">
+      <UFormGroup label="Password">
+          <UInput 
+            placeholder="Hasło"
+            icon="i-heroicons-lock-closed"
+            autocomplete="on"
+            autcomplete="current-password"
+
+            />
+        </UFormGroup>
+      <p v-if="passwordError" class="error">{{ passwordError }}</p>
     </div>
+    <button type="submit">Zaloguj się</button>
+    <p v-if="loginError" class="error">{{ loginError }}</p>
+    </form>
+  </div>
   </div>
 </template>
 
@@ -91,6 +89,7 @@ const handleLogin = async () => {
   color: red;
   font-size: 0.9em;
 }
+
 .login-container {
   display: flex;
   justify-content: center;
