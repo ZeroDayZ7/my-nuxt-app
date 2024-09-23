@@ -4,16 +4,30 @@
       <form @submit.prevent="handleLogin">
         <div class="form-group">
           <label for="email">Email:</label>
-          <input type="email" v-model="email" id="email" placeholder="Wprowadź email" required />
+          <input
+            type="email"
+            v-model="email"
+            id="email"
+            placeholder="Wprowadź email"
+            autocomplete="email"
+            required
+          />
+          <p v-if="emailError" class="error">{{ emailError }}</p>
         </div>
         <div class="form-group">
           <label for="password">Hasło:</label>
-          <input type="password" v-model="password" id="password" placeholder="Wprowadź hasło" required />
+          <input
+            type="password"
+            v-model="password"
+            id="password"
+            placeholder="Wprowadź hasło"
+            autocomplete="current-password"
+            required
+          />
+          <p v-if="passwordError" class="error">{{ passwordError }}</p>
         </div>
         <button type="submit">Zaloguj się</button>
-        <!-- <p class="forgot-password">
-          <a href="#">Zapomniałeś hasła?</a>
-        </p> -->
+        <p v-if="loginError" class="error">{{ loginError }}</p>
       </form>
     </div>
   </div>
@@ -24,37 +38,59 @@ import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import { loginUser } from '~/services/auth/login';
 
-
-const email = ref('yovasec567@fincainc.com');
-const password = ref('Zaq1@wsx');
+const email = ref('');
+const password = ref('');
 const router = useRouter();
 
+const emailError = ref('');
+const passwordError = ref('');
+const loginError = ref('');
+
+const validateEmail = (email: string) => {
+  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return re.test(String(email).toLowerCase());
+};
+
+const validatePassword = (password: string) => {
+  return password.length >= 6;
+};
+
 const handleLogin = async () => {
+  emailError.value = '';
+  passwordError.value = '';
+  loginError.value = '';
+
+  if (!validateEmail(email.value)) {
+    emailError.value = 'Wprowadź prawidłowy adres email.';
+    return;
+  }
+
+  if (!validatePassword(password.value)) {
+    passwordError.value = 'Hasło musi mieć co najmniej 6 znaków.';
+    return;
+  }
+
   // Zrób zapytanie do API o logowanie
   const response = await loginUser(email.value, password.value);
-
-  console.log(response);
 
   if (response.status === 200 && response.token) {
     // Ustaw isAuthenticated w Vuex lub w stanie aplikacji
     const isAuthenticated = useState('isAuthenticated');
     isAuthenticated.value = true;
-
-    // Możesz również zapisać token w cookies lub localStorage
-    // Cookies.set('authToken', response.token); // lub localStorage.setItem('authToken', response.token);
-
-    // Przekieruj do strony głównej lub innej strony
-    router.push('/about');
+    router.push('/'); // Przekierowanie po udanym logowaniu
   } else {
     // Obsługa błędów logowania
-    console.log('Nieprawidłowy login lub hasło');
+    loginError.value = 'Nieprawidłowy login lub hasło.';
   }
 };
-
 </script>
 
 
 <style scoped>
+.error {
+  color: red;
+  font-size: 0.9em;
+}
 .login-container {
   display: flex;
   justify-content: center;
@@ -89,9 +125,5 @@ button {
   border-radius: 4px;
   cursor: pointer;
   transition: 200ms
-}
-
-button:hover {
-  background-color: #0056b3;
 }
 </style>
