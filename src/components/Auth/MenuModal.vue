@@ -20,10 +20,10 @@ const handleLogoutNo = () => {
 <template>
   <div>
     <UButton icon="i-heroicons-bars-arrow-down" label="MENU" @click="isOpen = true" />
-
+    <!-- Główny Modal Menu -->
     <UModal v-model="isOpen" fullscreen prevent-close>
       <UCard :ui="{
-        base: 'h-full flex flex-col',
+        base: 'h-full flex flex-col overflow-y-auto',
         rounded: '',
         divide: 'divide-y divide-gray-100 dark:divide-gray-800',
         body: {
@@ -33,6 +33,7 @@ const handleLogoutNo = () => {
         <template #header>
           <div class="flex items-center justify-between">
             <h3 class="text-base font-semibold leading-6 text-gray-900 dark:text-white">
+              <UIcon color="green" name="i-heroicons-cpu-chip" class="w-5 h-5" />
               MENU
             </h3>
             <UButton color="red" variant="ghost" icon="i-heroicons-x-mark-20-solid" class="-my-1"
@@ -40,10 +41,135 @@ const handleLogoutNo = () => {
           </div>
         </template>
 
-        <UButton icon="i-heroicons-power" color="orange" @click="isLogout = true">Wyloguj</UButton>
+        <!-- Przycisk wylogowania -->
+        <div>
+          <div class="flex justify-end">
+            <UButton icon="i-heroicons-power" color="orange" @click="isLogout = true">Wyloguj</UButton>
+          </div>
+          <div class="flex-auto">
+            <UButton class="mx-1" icon="i-heroicons-power" color="gray">Admin</UButton>
+            <UButton class="mx-1" icon="i-heroicons-power" color="gray">Finanse</UButton>
+          </div>
+          <div class="flex-auto">
+            <UButton class="mx-1" icon="i-heroicons-power" color="gray">Admin</UButton>
+            <UButton class="mx-1" icon="i-heroicons-power" color="gray">Finanse</UButton>
+          </div>
+          <div class="flex-auto">
+            <UButton class="mx-1" icon="i-heroicons-power" color="gray">Admin</UButton>
+            <UButton class="mx-1" icon="i-heroicons-power" color="gray">Finanse</UButton>
+          </div>
+          <div class="flex-auto">
+            <UButton class="mx-1" icon="i-heroicons-power" color="gray">Admin</UButton>
+            <UButton class="mx-1" icon="i-heroicons-power" color="gray">Finanse</UButton>
+          </div>
+          <div class="flex-auto">
+            <UButton class="mx-1" icon="i-heroicons-power" color="gray">Admin</UButton>
+            <UButton class="mx-1" icon="i-heroicons-power" color="gray">Finanse</UButton>
+          </div>
+          <div class="flex-auto">
+            <UButton class="mx-1" icon="i-heroicons-power" color="gray">Admin</UButton>
+            <UButton class="mx-1" icon="i-heroicons-power" color="gray">Finanse</UButton>
+          </div>
+          <div class="flex-auto">
+            <UButton class="mx-1" icon="i-heroicons-power" color="gray">Admin</UButton>
+            <UButton class="mx-1" icon="i-heroicons-power" color="gray">Finanse</UButton>
+          </div>
+          <div class="flex-auto">
+            <UButton class="mx-1" icon="i-heroicons-power" color="gray">Admin</UButton>
+            <UButton class="mx-1" icon="i-heroicons-power" color="gray">Finanse</UButton>
+          </div>
+          <div class="flex-auto">
+            <UButton class="mx-1" icon="i-heroicons-power" color="gray">Admin</UButton>
+            <UButton class="mx-1" icon="i-heroicons-power" color="gray">Finanse</UButton>
+          </div>
+          <div class="flex-auto">
+            <UButton class="mx-1" icon="i-heroicons-power" color="gray">Admin</UButton>
+            <UButton class="mx-1" icon="i-heroicons-power" color="gray">Finanse</UButton>
+          </div>
+          <div class="flex-auto">
+            <UButton class="mx-1" icon="i-heroicons-power" color="gray">Admin</UButton>
+            <UButton class="mx-1" icon="i-heroicons-power" color="gray">Finanse</UButton>
+          </div>
+          <div class="flex-auto">
+            <UButton class="mx-1" icon="i-heroicons-power" color="gray">Admin</UButton>
+            <UButton class="mx-1" icon="i-heroicons-power" color="gray">Finanse</UButton>
+          </div>
+          <div class="flex-auto">
+            <UButton class="mx-1" icon="i-heroicons-power" color="gray">Admin</UButton>
+            <UButton class="mx-1" icon="i-heroicons-power" color="gray">Finanse</UButton>
+          </div>
+          <div class="flex-auto">
+            <UButton class="mx-1" icon="i-heroicons-power" color="gray">Admin</UButton>
+            <UButton class="mx-1" icon="i-heroicons-power" color="gray">Finanse</UButton>
+          </div>
+          <div class="flex-auto">
+            <UButton class="mx-1" icon="i-heroicons-power" color="gray">Admin</UButton>
+            <UButton class="mx-1" icon="i-heroicons-power" color="gray">Finanse</UButton>
+          </div>
+          <div class="flex-auto">
+            <UButton class="mx-1" icon="i-heroicons-power" color="gray">Admin</UButton>
+            <UButton class="mx-1" icon="i-heroicons-power" color="gray">Finanse</UButton>
+          </div>
+          <div class="flex-auto">
+            <UButton class="mx-1" icon="i-heroicons-power" color="gray">Admin</UButton>
+            <UButton class="mx-1" icon="i-heroicons-power" color="gray">Finanse</UButton>
+          </div>
+          <div class="flex-auto">
+            <UButton class="mx-1" icon="i-heroicons-power" color="gray">Admin</UButton>
+            <UButton class="mx-1" icon="i-heroicons-power" color="gray">Finanse</UButton>
+          </div>
+          <div class="flex-auto">
+            <UButton class="mx-1" icon="i-heroicons-power" color="gray">Admin</UButton>
+            <UButton class="mx-1" icon="i-heroicons-power" color="gray">Finanse</UButton>
+          </div>
+          <div class="flex-auto">
+            <UButton class="mx-1" icon="i-heroicons-power" color="gray">Admin</UButton>
+            <UButton class="mx-1" icon="i-heroicons-power" color="gray">Finanse</UButton>
+          </div>
+          <div class="flex-auto">
+            <UButton class="mx-1" icon="i-heroicons-power" color="gray">Admin</UButton>
+            <UButton class="mx-1" icon="i-heroicons-power" color="gray">Finanse</UButton>
+          </div>
+          <div class="flex-auto">
+            <UButton class="mx-1" icon="i-heroicons-power" color="gray">Admin</UButton>
+            <UButton class="mx-1" icon="i-heroicons-power" color="gray">Finanse</UButton>
+          </div>
+          <div class="flex-auto">
+            <UButton class="mx-1" icon="i-heroicons-power" color="gray">Admin</UButton>
+            <UButton class="mx-1" icon="i-heroicons-power" color="gray">Finanse</UButton>
+          </div>
+          <div class="flex-auto">
+            <UButton class="mx-1" icon="i-heroicons-power" color="gray">Admin</UButton>
+            <UButton class="mx-1" icon="i-heroicons-power" color="gray">Finanse</UButton>
+          </div>
+          <div class="flex-auto">
+            <UButton class="mx-1" icon="i-heroicons-power" color="gray">Admin</UButton>
+            <UButton class="mx-1" icon="i-heroicons-power" color="gray">Finanse</UButton>
+          </div>
+          <div class="flex-auto">
+            <UButton class="mx-1" icon="i-heroicons-power" color="gray">Admin</UButton>
+            <UButton class="mx-1" icon="i-heroicons-power" color="gray">Finanse</UButton>
+          </div>
+          <div class="flex-auto">
+            <UButton class="mx-1" icon="i-heroicons-power" color="gray">Admin</UButton>
+            <UButton class="mx-1" icon="i-heroicons-power" color="gray">Finanse</UButton>
+          </div>
+          <div class="flex-auto">
+            <UButton class="mx-1" icon="i-heroicons-power" color="gray">Admin</UButton>
+            <UButton class="mx-1" icon="i-heroicons-power" color="gray">Finanse</UButton>
+          </div>
+          <div class="flex-auto">
+            <UButton class="mx-1" icon="i-heroicons-power" color="gray">Admin</UButton>
+            <UButton class="mx-1" icon="i-heroicons-power" color="gray">Finanse</UButton>
+          </div>
+          <div class="flex-auto">
+            <UButton class="mx-1" icon="i-heroicons-power" color="gray">Admin</UButton>
+            <UButton class="mx-1" icon="i-heroicons-power" color="gray">Finanse</UButton>
+          </div>
+        </div>
 
         <!-- Modal wylogowania -->
-        <UModal v-model="isLogout" class="abc" :ui="{
+        <UModal v-model="isLogout" :ui="{
           container: 'min-h-0 lg:min-h-full'
         }">
           <UCard>
@@ -70,8 +196,4 @@ const handleLogoutNo = () => {
 
 
 
-<style scoped>
-.abc * {
-  z-index: 9999;
-}
-</style>
+<style scoped></style>
