@@ -4,6 +4,31 @@ const isAuth = useAuth();
 
 const isLogout = ref(false);
 
+const loadTime = ref(0);
+const loadingMenu = ref(false);
+
+const openMenu = async () => {
+  // Rozpoczynamy mierzenie czasu
+  const startTime = performance.now();
+  loadingMenu.value = true;
+
+  try {
+    // Poczekaj na zakończenie cyklu renderowania, aby upewnić się, że modal w pełni się załadował
+    await nextTick();
+
+    // Dodaj niewielkie opóźnienie, aby symulować opóźnienia w środowisku produkcyjnym
+    // await new Promise(resolve => setTimeout(resolve, 1000));
+
+  } finally {
+    // Koniec mierzenia czasu
+    isOpen.value = true;
+    const endTime = performance.now();
+    loadTime.value = (endTime - startTime) / 1000; // Czas w sekundach
+    loadingMenu.value = false;
+    console.log(`Czas ładowania menu: ${loadTime.value} sekund`);
+  }
+};
+
 const handleLogoutYes = () => {
   // Tu dodaj logikę wylogowania
   isAuth.value = false;
@@ -19,7 +44,7 @@ const handleLogoutNo = () => {
 
 <template>
   <div>
-    <UButton icon="i-heroicons-bars-arrow-down" label="MENU" @click="isOpen = true" />
+    <UButton icon="i-heroicons-bars-arrow-down" label="MENU" @click="openMenu" :loading="loadingMenu"/>
     <!-- Główny Modal Menu -->
     <UModal v-model="isOpen" fullscreen prevent-close>
       <UCard :ui="{
@@ -35,6 +60,7 @@ const handleLogoutNo = () => {
             <h3 class="text-base font-semibold leading-6 text-gray-900 dark:text-white">
               <UIcon color="green" name="i-heroicons-cpu-chip" class="w-5 h-5" />
               MENU
+              <p>{{ loadTime }}</p>
             </h3>
             <UButton color="red" variant="ghost" icon="i-heroicons-x-mark-20-solid" class="-my-1"
               @click="isOpen = false" />
