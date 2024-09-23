@@ -12,15 +12,12 @@ const isOpen = ref(false)
       <div class="p-4">
         <div class="flex items-center justify-between">
           <UButton 
-            color="white"
-            variant="ghost"
-            icon="i-heroicons-pencil-square"
-            class="-my-1 bg-red-800"
-            @click="isOpen = false"
-            >
-            X
-          <!-- <UIcon name="i-heroicons-x-mark-20-solid"/> -->
-          </UButton>
+            color="red"
+            backg
+            variant="ghost" 
+            icon="i-heroicons-x-mark-20-solid" 
+            class="-my-1 absolute right-1 top-2 p-1 bg-red-800"
+            @click="isOpen = false" />
 
         </div>
         <AuthLoginForm />
@@ -28,11 +25,7 @@ const isOpen = ref(false)
     </UModal>
   </div>
 </template>
-<!-- <style>
-.iconify {
-  color: black;
-}
-</style> -->
+
 
 <!-- <script setup lang="ts">
 const isOpen = ref(false)
