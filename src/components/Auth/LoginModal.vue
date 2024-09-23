@@ -16,7 +16,7 @@ const isOpen = ref(false)
             color="white"
             variant="ghost" 
             icon="i-heroicons-x-mark-20-solid" 
-            class="-my-1 absolute right-1 top-2 p-1"
+            class="-my-1 absolute right-3 top-3 p-1 h-5 w-5"
             @click="isOpen = false"
             loading
             />
