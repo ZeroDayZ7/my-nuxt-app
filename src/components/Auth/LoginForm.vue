@@ -32,6 +32,9 @@ const loginError = ref('');
 
 const isSubmitting = ref(false);
 
+const isOpen = useOpen();
+const isAuth = useAuth();
+
 const validateEmail = (email: string) => {
   const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return re.test(String(email).toLowerCase());
@@ -56,7 +59,8 @@ const handleLogin = async () => {
 
   setTimeout(() => {
     isSubmitting.value = false;
-    
+    isOpen.value = false;
+    isAuth.value = true;
   }, 2000);
   return;
   // Zrób zapytanie do API o logowanie

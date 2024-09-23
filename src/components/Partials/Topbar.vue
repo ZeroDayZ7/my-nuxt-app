@@ -7,7 +7,10 @@
       <div class="fr">
         <About />
         <div class="mrg15"></div>
-        <LoginModal />
+        <div class="w100">
+          <LoginModal v-if="!isAuth" />
+          <div v-else>Witaj Admin</div>
+        </div>
       </div>
     </div>
   </header>
@@ -16,16 +19,24 @@
 <script setup lang="ts">
 import About from '~/pages/about.vue';
 import LoginModal from '../Auth/LoginModal.vue';
-
+const isAuth = useAuth();
 
 </script>
 
 <style scoped>
+.w100 {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
 header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;  
+  align-items: center;
 }
 
 header div,

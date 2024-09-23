@@ -1,6 +1,6 @@
 <template>
   <div>
-   
+    <!-- <p>Status isOpen: {{ isOpen }}</p> -->
     <UProgress 
       v-show="isLoading"
       size="xs" 
@@ -25,8 +25,12 @@ useHead({
   title: `${route.meta.title}`
 })
 const isLoading = useLoading();
+// const isOpen = useOpen();
+
 
 const runtimeConfig = useRuntimeConfig();
+
+
 
 // console.log(runtimeConfig.apiSecret)
 // console.log(runtimeConfig.JWT_SECRET)
