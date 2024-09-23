@@ -9,7 +9,7 @@
         <div class="mrg15"></div>
         <div class="w100">
           <LoginModal v-if="!isAuth" />
-          <div v-else>Witaj Admin</div>
+          <div v-else><MenuModal /></div>
         </div>
       </div>
     </div>
@@ -19,6 +19,7 @@
 <script setup lang="ts">
 import About from '~/pages/about.vue';
 import LoginModal from '../Auth/LoginModal.vue';
+import MenuModal from '../Auth/MenuModal.vue';
 const isAuth = useAuth();
 
 </script>

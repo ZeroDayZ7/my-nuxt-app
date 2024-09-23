@@ -61,7 +61,7 @@ const handleLogin = async () => {
     isSubmitting.value = false;
     isOpen.value = false;
     isAuth.value = true;
-  }, 2000);
+  }, 500);
   return;
   // Zrób zapytanie do API o logowanie
   try {
