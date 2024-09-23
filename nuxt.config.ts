@@ -11,7 +11,7 @@ export default defineNuxtConfig({
     "@C": "<rootDir>/components/",
   },
   compatibilityDate: "2024-04-03",
-  devtools: { enabled: true },
+  devtools: { enabled: false },
   ssr: true,
   app: {
     // baseURL: "/",
