@@ -6,18 +6,20 @@ const isOpen = ref(false)
   <div>
     <UButton label="Zaloguj" @click="isOpen = true" />
 
-    <UModal v-model="isOpen" :ui="{
+    <UModal v-model="isOpen" 
+      :ui="{
       container: 'min-h-0 lg:min-h-full'
     }">
       <div class="p-4">
         <div class="flex items-center justify-between">
           <UButton 
-            color="red"
-            backg
+            color="white"
             variant="ghost" 
             icon="i-heroicons-x-mark-20-solid" 
-            class="-my-1 absolute right-1 top-2 p-1 bg-red-800"
-            @click="isOpen = false" />
+            class="-my-1 absolute right-1 top-2 p-1"
+            @click="isOpen = false"
+            loading
+            />
 
         </div>
         <AuthLoginForm />
