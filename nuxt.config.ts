@@ -9,7 +9,9 @@ export default defineNuxtConfig({
     transpile: 
     [
       '@headlessui/vue',
-      '@heroicons/vue'
+      '@heroicons/vue',
+      '@nuxt/icon',
+      '@iconify-json/heroicons'
     ]
   },
   srcDir: "src/",
