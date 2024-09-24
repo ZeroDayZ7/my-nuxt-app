@@ -3,7 +3,7 @@ export default defineNuxtConfig({
   // modules: ['nuxt-security'],
   modules: [
     '@nuxt/ui', 
-    '@vite-pwa/nuxt'
+    '@vite-pwa/nuxt',
   ],
   pwa: {
     manifest: {
@@ -13,13 +13,27 @@ export default defineNuxtConfig({
       display: 'standalone',
       start_url: '/my-nuxt-app/',
       background_color: '#ffffff',
-      theme_color: '#4DBA87'
+      theme_color: '#4DBA87',
+      icons: [
+        {
+          src: 'icon-192x192.jpg',
+          sizes: '192x192',
+          type: 'image/png',
+        },
+        {
+          src: 'icon-512x512.jpg',
+          sizes: '512x512',
+          type: 'image/png',
+        },
+      ],
     },
     workbox: {
       // Konfiguracja cache dla trybu offline
-    }
+    },
+    devOptions:{
+      suppressWarnings: true,
+    },
   },
-
   css: [
     "~/assets/main.css", // Ścieżka do pliku CSS
   ],
