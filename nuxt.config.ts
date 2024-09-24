@@ -3,6 +3,7 @@ export default defineNuxtConfig({
   // modules: ['nuxt-security'],
   modules: ["@nuxt/ui", "@vite-pwa/nuxt"],
   pwa: {
+    registerType: 'autoUpdate',
     manifest: {
       name: "Centralne PNP",
       short_name: "CPNP",
@@ -124,7 +125,7 @@ export default defineNuxtConfig({
       appMiddleware: ["auth"],
     },
   },
-  ssr: false,
+  ssr: true,
   // components: [{
   //   path: '~/components',
   //   pathPrefix: false,
