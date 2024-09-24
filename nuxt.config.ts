@@ -25,10 +25,10 @@ export default defineNuxtConfig({
       ],
     },
     workbox: {
-      globPatterns: ["*.js"],
+      globPatterns: ['**/*.{js,css,html,png,svg,ico}'],
       runtimeCaching: [
         {
-          urlPattern: "/my-nuxt-app/",
+          urlPattern: "/",
           handler: "NetworkFirst", // lub 'CacheFirst' w zależności od potrzeb
           options: {
             cacheName: "my-app-cache",
@@ -74,10 +74,10 @@ export default defineNuxtConfig({
           type: "image/x-icon",
           href: "/my-nuxt-app/favicon.ico",
         },
-        {
-          rel: "manifest",
-          href: "/my-nuxt-app/manifest.json",
-        },
+        // {
+        //   rel: "manifest",
+        //   href: "/my-nuxt-app/manifest.json",
+        // },
       ],
       
     },
