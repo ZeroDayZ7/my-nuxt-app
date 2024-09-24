@@ -16,7 +16,9 @@
 <script setup>
 
 const layout = "default";
-// Możesz dodać logikę skryptu tutaj, jeśli jest potrzebna
+const runtimeConfig = useRuntimeConfig();
+console.log(runtimeConfig.public.apiUrl);
+
 </script>
 
 <style scoped>

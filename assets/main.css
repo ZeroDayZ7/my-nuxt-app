@@ -44,6 +44,10 @@ a:hover{
 button{
   /* background-color: transparent; */
 }
+.error {
+  color: orange;
+  font-size: 0.9em;
+}
 
 
 /* Dostosowanie wyglądu paska przewijania dla przeglądarek opartych na silniku Chromium */

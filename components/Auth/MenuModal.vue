@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import LogoutModal from './LogoutModal.vue';
+
 const isOpen = useOpen();
 const isAuth = useAuth();
 
@@ -35,16 +37,38 @@ const showMenu = async () => {
   }
 };
 
-const handleLogoutYes = () => {
-  // Tu dodaj logikę wylogowania
-  isAuth.value = false;
-  isLogout.value = false; // Zamknij modal po wylogowaniu
-  isOpen.value = false; // Zamknij główny modal po wylogowaniu
-};
 
-const handleLogoutNo = () => {
-  isLogout.value = false; // Zamknij modal po wylogowaniu
-};
+
+const route = useRoute()
+
+const links = [
+  [{
+    label: 'Profile',
+    avatar: {
+      src: 'https://avatars.githubusercontent.com/u/739984?v=4'
+    },
+    badge: 100
+  }, {
+    label: 'Installation',
+    icon: 'i-heroicons-home',
+    to: '/getting-started/installation'
+  }, {
+    label: 'Vertical Navigation',
+    icon: 'i-heroicons-chart-bar',
+    to: `${route.path.startsWith('/dev') ? '/dev' : ''}/components/vertical-navigation`
+  }, {
+    label: 'Command Palette',
+    icon: 'i-heroicons-command-line',
+    to: '/components/command-palette'
+  }], [{
+    label: 'Examples',
+    icon: 'i-heroicons-light-bulb'
+  }, {
+    label: 'Help',
+    icon: 'i-heroicons-question-mark-circle'
+  }]
+]
+
 </script>
 
 <template>
@@ -62,11 +86,24 @@ const handleLogoutNo = () => {
       }">
         <template #header>
           <div class="flex items-center justify-between">
-            <h3 class="text-base font-semibold leading-6 text-gray-900 dark:text-white">
-              <UIcon color="green" name="i-heroicons-cpu-chip" class="w-5 h-5" />
-              MENU
-              <p>{{ loadTime }}</p>
-            </h3>
+            <div class="flex">
+              <!-- Test -->
+               <div class="mx-2">
+              <UButton to="/test/test" icon="i-heroicons-user" color="blue" />
+            </div>
+              <!-- Messages -->
+              <div class="mx-2">
+              <UChip text="3" size="2xl">
+                <UButton to="/messages/messages" variant="solid" icon="i-heroicons-chat-bubble-left-ellipsis"
+                  color="green" @click="isLogout = true" />
+              </UChip>
+            </div>
+              <!-- Logout -->
+              <div class="ml-12">
+              <LogoutModal />
+              </div>
+            </div>
+            <p>{{ loadTime }}</p>
             <UButton color="red" variant="ghost" icon="i-heroicons-x-mark-20-solid" class="-my-1"
               @click="isOpen = false" />
           </div>
@@ -74,40 +111,11 @@ const handleLogoutNo = () => {
 
         <!-- Przyciski -->
         <div>
-          <div class="flex justify-end">
-            <!-- Test -->
-            <UButton to="/test/test" class="mr-2" icon="i-heroicons-power" color="blue">Test</UButton>
-            <!-- Messages -->
-            <UChip text="3" size="2xl" class="mr-5">
-              <UButton to="/messages/messages" variant="solid" icon="i-heroicons-power" color="green" @click="isLogout = true">Wiadomośći
-              </UButton>
-            </UChip>
-            <!-- Logout -->
-            <UButton icon="i-heroicons-power" color="orange" @click="isLogout = true">Wyloguj</UButton>
-          </div>
+
           <div class="flex-auto mt-2">
-            <UButton class="mx-1" icon="i-heroicons-power" color="gray">Admin</UButton>
-            <UButton class="mx-1" icon="i-heroicons-power" color="gray">Finanse</UButton>
+            <UVerticalNavigation :links="links" />
           </div>
         </div>
-
-        <!-- Modal wylogowania -->
-        <UModal v-model="isLogout" :ui="{
-          container: 'min-h-0 lg:min-h-full'
-        }">
-          <UCard>
-            <template #header>
-              <h3 class="text-base font-semibold leading-6 text-gray-900 dark:text-white">
-                Czy na pewno chcesz się wylogować?
-              </h3>
-            </template>
-
-            <div class="flex justify-end space-x-2 mt-4">
-              <UButton color="red" @click="handleLogoutYes" autofocus>TAK</UButton>
-              <UButton color="gray" @click="handleLogoutNo">NIE</UButton>
-            </div>
-          </UCard>
-        </UModal>
         <!-- Koniec Modal wylogowania -->
       </UCard>
     </UModal>

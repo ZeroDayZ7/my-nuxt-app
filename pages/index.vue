@@ -27,15 +27,6 @@ useHead({
 const isLoading = useLoading();
 // const isOpen = useOpen();
 
-
-const runtimeConfig = useRuntimeConfig();
-
-
-
-// console.log(runtimeConfig.apiSecret)
-// console.log(runtimeConfig.JWT_SECRET)
-// console.log(runtimeConfig.public.apiBase)
-
 // const toast = useToast();
 
 

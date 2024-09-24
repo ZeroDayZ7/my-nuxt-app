@@ -22,10 +22,19 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import { loginUser } from '~/services/auth/login';
+import { loginUser } from '~/services/auth';
 
-const email = ref('a@a.pl');
-const password = ref('123456');
+// Definicja interfejsu
+interface AuthResponse {
+  token?: string;
+  status?: number;
+  message: string;
+}
+
+
+
+const email = ref('yovasec567@fincainc.com');
+const password = ref('Zaq1@wsx');
 
 const messageError = ref('');
 const loginError = ref('');
@@ -48,8 +57,6 @@ const handleLogin = async () => {
   if (isSubmitting.value) return;  // Zapobiegaj wielokrotnemu wysyłaniu
 
   isSubmitting.value = true;
-  messageError.value = '';
-  loginError.value = '';
 
   if (!validateEmail(email.value) || !validatePassword(password.value)) {
     messageError.value = 'Podaj poprawne dane.';
@@ -57,40 +64,28 @@ const handleLogin = async () => {
     return;
   }
 
-  setTimeout(() => {
-    isSubmitting.value = false;
-    isOpen.value = false;
-    isAuth.value = true;
-  }, 500);
-  return;
   // Zrób zapytanie do API o logowanie
   try {
-    const response = await loginUser(email.value, password.value);
+    const response: AuthResponse = await loginUser(email.value, password.value);
 
-    if (response.status === 200 && response.token) {
-      // Ustaw isAuthenticated w Vuex lub w stanie aplikacji
-      const isAuthenticated = useState('isAuthenticated');
-      isAuthenticated.value = true;
+    if ('token' in response) { // Sprawdzamy, czy odpowiedź zawiera token
+      isAuth.value = true;
+      isOpen.value = false;
     } else {
-      // Obsługa błędów logowania
-      messageError.value = 'Nieprawidłowy login lub hasło.';
-      isSubmitting.value = false;
-      return;
+      messageError.value = response.message; // Używamy wiadomości z błędu
     }
+  } catch (error) {
+    messageError.value = 'Wystąpił błąd podczas logowania.';
+    console.error('Błąd logowania:', error);
   } finally {
     isSubmitting.value = false;
-    return;
   }
 };
+
 </script>
 
 
 <style scoped>
-.error {
-  color: red;
-  font-size: 0.9em;
-}
-
 .login-container {
   display: flex;
   justify-content: center;

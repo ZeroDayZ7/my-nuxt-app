@@ -1,7 +1,30 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   // modules: ['nuxt-security'],
-  modules: ["@nuxt/ui", "@vite-pwa/nuxt"],
+  modules: [
+    "@nuxt/ui", 
+    "@vite-pwa/nuxt"
+  ],
+  app: {
+    baseURL: "/my-nuxt-app/",
+    head: {
+      title: 'Centrum PNP',
+      link: [
+        {
+          rel: "icon",
+          type: "image/x-icon",
+          href: "/my-nuxt-app/favicon.ico",
+        },
+      ],
+      meta: [
+        { name: 'description', content: 'CPNP' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1'},
+      ],
+    },
+  },
+  css: [
+    "~/assets/main.css", // Ścieżka do pliku CSS
+  ],
   pwa: {
     registerType: "autoUpdate",
     manifest: {
@@ -62,9 +85,6 @@ export default defineNuxtConfig({
       suppressWarnings: true,
     },
   },
-  css: [
-    "~/assets/main.css", // Ścieżka do pliku CSS
-  ],
   ui: {
     global: true,
   },
@@ -82,38 +102,16 @@ export default defineNuxtConfig({
     "@C": "<rootDir>/components/",
   },
   compatibilityDate: "2024-04-03",
-  devtools: { enabled: false },
-  app: {
-    baseURL: "/my-nuxt-app/",
-    head: {
-      link: [
-        {
-          rel: "icon",
-          type: "image/x-icon",
-          href: "/my-nuxt-app/favicon.ico",
-        },
-      ],
-    },
-    // head:{
-    //   link: [
-    //     {
-    //       rel: 'stylesheet',
-    //       href: 'https://cdn.jsdelivr.net/npm/heroicons-css@0.1.1/heroicons.min.css'
-    //     }
-    //   ],
-    //   script: [
-    //     {
-    //       src: 'https://cdn.jsdelivr.net/npm/heroicons-css@0.1.1/heroicons.min.js'
-    //     }
-    //   ]
-    // }
+  devtools: {
+    enabled: process.env.NODE_ENV === 'development'
   },
   runtimeConfig: {
-    apiSecret: "123",
+    JWT_SECRET: process.env.JWT_SECRET,
+    COOKIE_NAME: process.env.COOKIE_NAME,
+    COOKIE_MAX_AGE: process.env.COOKIE_MAX_AGE,
+    COOKIE_SECURE: process.env.COOKIE_SECURE,
     public: {
-      apiUrl: "http://localhost:3001",
-      apiBase: "/api",
-      apiName: "CPNP",
+      apiUrl: "http://localhost:3001/my-nuxt-app",
     },
   },
   routeRules: {
@@ -148,6 +146,9 @@ export default defineNuxtConfig({
   nitro: {
     preset: "node-server",
   },
+  typescript: {
+    strict: true,
+  }
   // security: {
   //   strict: false,
   //   headers: {
