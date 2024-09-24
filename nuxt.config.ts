@@ -10,8 +10,8 @@ export default defineNuxtConfig({
       lang: "pl",
       display: "standalone",
       start_url: "/my-nuxt-app/",
-      background_color: "#ffffff",
-      theme_color: "#4DBA87",
+      background_color: "#000000",
+      theme_color: "#000000",
       icons: [
         {
           src: "icon-192x192.jpg",
