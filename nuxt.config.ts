@@ -1,40 +1,37 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   // modules: ['nuxt-security'],
-  modules: [
-    '@nuxt/ui', 
-    '@vite-pwa/nuxt',
-  ],
+  modules: ["@nuxt/ui", "@vite-pwa/nuxt"],
   pwa: {
     manifest: {
-      name: 'Centralne PNP',
-      short_name: 'CPNP',
-      lang: 'pl',
-      display: 'standalone',
-      start_url: '/my-nuxt-app/',
-      background_color: '#ffffff',
-      theme_color: '#4DBA87',
+      name: "Centralne PNP",
+      short_name: "CPNP",
+      lang: "pl",
+      display: "standalone",
+      start_url: "/my-nuxt-app/",
+      background_color: "#ffffff",
+      theme_color: "#4DBA87",
       icons: [
         {
-          src: 'icon-192x192.jpg',
-          sizes: '192x192',
-          type: 'image/png',
+          src: "icon-192x192.jpg",
+          sizes: "192x192",
+          type: "image/png",
         },
         {
-          src: 'icon-512x512.jpg',
-          sizes: '512x512',
-          type: 'image/png',
+          src: "icon-512x512.jpg",
+          sizes: "512x512",
+          type: "image/png",
         },
       ],
     },
     workbox: {
-      globPatterns: ['*.js'],
+      globPatterns: ["*.js"],
       runtimeCaching: [
         {
-          urlPattern: '/my-nuxt-app/',
-          handler: 'NetworkFirst', // lub 'CacheFirst' w zależności od potrzeb
+          urlPattern: "/my-nuxt-app/",
+          handler: "NetworkFirst", // lub 'CacheFirst' w zależności od potrzeb
           options: {
-            cacheName: 'my-app-cache',
+            cacheName: "my-app-cache",
             expiration: {
               maxEntries: 50,
               maxAgeSeconds: 30 * 24 * 60 * 60, // 30 dni
@@ -43,24 +40,23 @@ export default defineNuxtConfig({
         },
       ],
     },
-    devOptions:{
+    devOptions: {
       suppressWarnings: true,
     },
   },
   css: [
     "~/assets/main.css", // Ścieżka do pliku CSS
   ],
-  ui:{
-    global: true
+  ui: {
+    global: true,
   },
   build: {
-    transpile: 
-    [
-      '@headlessui/vue',
-      '@heroicons/vue',
-      '@nuxt/icon',
-      '@iconify-json/heroicons'
-    ]
+    transpile: [
+      "@headlessui/vue",
+      "@heroicons/vue",
+      "@nuxt/icon",
+      "@iconify-json/heroicons",
+    ],
   },
   alias: {
     "@A": "<rootDir>/assets/",
@@ -78,7 +74,12 @@ export default defineNuxtConfig({
           type: "image/x-icon",
           href: "/my-nuxt-app/favicon.ico",
         },
+        {
+          rel: "manifest",
+          href: "/my-nuxt-app/manifest.json",
+        },
       ],
+      
     },
     // head:{
     //   link: [
@@ -97,9 +98,9 @@ export default defineNuxtConfig({
   runtimeConfig: {
     apiSecret: "123",
     public: {
-      apiUrl:  "http://localhost:3001",
+      apiUrl: "http://localhost:3001",
       apiBase: "/api",
-      apiName: "CPNP"
+      apiName: "CPNP",
     },
   },
   routeRules: {
