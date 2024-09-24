@@ -25,7 +25,6 @@ export default defineNuxtConfig({
   compatibilityDate: "2024-04-03",
   devtools: { enabled: false },
   app: {
-    // baseURL: "/",
     baseURL: "/my-nuxt-app/",
     head: {
       link: [
@@ -60,7 +59,7 @@ export default defineNuxtConfig({
   },
   routeRules: {
     "/": {
-      // prerender: true,
+      prerender: true,
     },
     "/api/**": {
       cors: true,
@@ -79,6 +78,7 @@ export default defineNuxtConfig({
       appMiddleware: ["auth"],
     },
   },
+  // ssr: true,
   // components: [{
   //   path: '~/components',
   //   pathPrefix: false,
