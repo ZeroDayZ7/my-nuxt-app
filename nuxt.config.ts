@@ -75,10 +75,6 @@ export default defineNuxtConfig({
           type: "image/x-icon",
           href: "/my-nuxt-app/favicon.ico",
         },
-        // {
-        //   rel: "manifest",
-        //   href: "/my-nuxt-app/manifest.json",
-        // },
       ],
       
     },

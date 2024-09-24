@@ -1,8 +1,8 @@
 <template>
   <div>
+    <NuxtPwaManifest/>
     <UContainer class="p-0 mx-0 max-w-full sm:px-0 lg:px-0">
       <NuxtLayout :name="layout">
-        <NuxtPwaManifest/>
         <NuxtPage />
       </NuxtLayout>
     </UContainer>
