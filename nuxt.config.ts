@@ -29,6 +29,19 @@ export default defineNuxtConfig({
     },
     workbox: {
       globPatterns: ['*.js'],
+      runtimeCaching: [
+        {
+          urlPattern: '/my-nuxt-app/',
+          handler: 'NetworkFirst', // lub 'CacheFirst' w zależności od potrzeb
+          options: {
+            cacheName: 'my-app-cache',
+            expiration: {
+              maxEntries: 50,
+              maxAgeSeconds: 30 * 24 * 60 * 60, // 30 dni
+            },
+          },
+        },
+      ],
     },
     devOptions:{
       suppressWarnings: true,
