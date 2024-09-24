@@ -28,7 +28,7 @@ export default defineNuxtConfig({
       ],
     },
     workbox: {
-      // Konfiguracja cache dla trybu offline
+      globPatterns: ['*.js'],
     },
     devOptions:{
       suppressWarnings: true,
