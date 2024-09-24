@@ -86,9 +86,9 @@ export default defineNuxtConfig({
   devServer: {
     port: 3001,
   },
-  // nitro: {
-  //   preset: "node-server",
-  // },
+  nitro: {
+    preset: "node-server",
+  },
   // security: {
   //   strict: false,
   //   headers: {
