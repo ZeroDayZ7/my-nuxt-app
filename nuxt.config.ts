@@ -5,6 +5,7 @@ export default defineNuxtConfig({
   pwa: {
     registerType: "autoUpdate",
     manifest: {
+      id: '/my-nuxt-app',
       name: "Centralne PNP",
       short_name: "CPNP",
       lang: "pl",
@@ -27,14 +28,14 @@ export default defineNuxtConfig({
       screenshots: [
         {
           src: "/my-nuxt-app/screenshot1.jpg",
-          sizes: "1280x720",
+          sizes: "720x1280",
           type: "image/jpg",
           form_factor: "narrow",
           label: "Bądź i Rządź - CPNP",
         },
         {
           src: "/my-nuxt-app/screenshot2.jpg",
-          sizes: "1000x1000",
+          sizes: "1024x1024",
           type: "image/jpg",
           form_factor: "wide",
           label: "Bądź i Rządź - CPNP",
