@@ -8,15 +8,15 @@ export default defineNuxtConfig({
   ui:{
     global: true
   },
-  build: {
-    transpile: 
-    [
-      '@headlessui/vue',
-      '@heroicons/vue',
-      '@nuxt/icon',
-      '@iconify-json/heroicons'
-    ]
-  },
+  // build: {
+  //   transpile: 
+  //   [
+  //     '@headlessui/vue',
+  //     '@heroicons/vue',
+  //     '@nuxt/icon',
+  //     '@iconify-json/heroicons'
+  //   ]
+  // },
   alias: {
     "@A": "<rootDir>/assets/",
     "@P": "<rootDir>/public/",
