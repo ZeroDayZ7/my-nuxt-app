@@ -102,7 +102,7 @@ export default defineNuxtConfig({
   },
   routeRules: {
     "/": {
-      prerender: true,
+      prerender: false,
     },
     "/api/**": {
       cors: true,
@@ -121,7 +121,7 @@ export default defineNuxtConfig({
       appMiddleware: ["auth"],
     },
   },
-  ssr: true,
+  ssr: false,
   // components: [{
   //   path: '~/components',
   //   pathPrefix: false,
