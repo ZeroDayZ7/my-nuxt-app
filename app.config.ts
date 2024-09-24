@@ -1,15 +1,12 @@
 export default defineAppConfig({
     ui: {
-      // button: {
-      //   hover:{
-      //     backgroundColor: 'inherit',
-      //     color: 'white'
-      //   },
-      //   default:{
-      //     color: 'orange',
-      //     variant: 'ghost'
-      //   },
-      // },
+      button: {
+        hover : {}
+        // default:{
+        //   color: 'orange',
+        //   variant: 'ghost'
+        // },
+      },
       primary: 'green',
       gray: 'cool',
       notifications: {
