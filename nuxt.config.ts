@@ -3,7 +3,7 @@ export default defineNuxtConfig({
   // modules: ['nuxt-security'],
   modules: ["@nuxt/ui", "@vite-pwa/nuxt"],
   pwa: {
-    registerType: 'autoUpdate',
+    registerType: "autoUpdate",
     manifest: {
       name: "Centralne PNP",
       short_name: "CPNP",
@@ -24,9 +24,25 @@ export default defineNuxtConfig({
           type: "image/png",
         },
       ],
+      screenshots: [
+        {
+          src: "/my-nuxt-app/screenshot1.jpg",
+          sizes: "1280x720",
+          type: "image/jpg",
+          form_factor: "narrow",
+          label: "Bądź i Rządź - CPNP",
+        },
+        {
+          src: "/my-nuxt-app/screenshot2.jpg",
+          sizes: "1000x1000",
+          type: "image/jpg",
+          form_factor: "wide",
+          label: "Bądź i Rządź - CPNP",
+        },
+      ],
     },
     workbox: {
-      globPatterns: ['**/*.{js,css,html,png,svg,ico}'],
+      globPatterns: ["**/*.{js,css,html,png,svg,ico}"],
       runtimeCaching: [
         {
           urlPattern: "/my-nuxt-app/",
@@ -76,7 +92,6 @@ export default defineNuxtConfig({
           href: "/my-nuxt-app/favicon.ico",
         },
       ],
-      
     },
     // head:{
     //   link: [
