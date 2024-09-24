@@ -29,7 +29,7 @@ export default defineNuxtConfig({
       globPatterns: ['**/*.{js,css,html,png,svg,ico}'],
       runtimeCaching: [
         {
-          urlPattern: "/",
+          urlPattern: "/my-nuxt-app/",
           handler: "NetworkFirst", // lub 'CacheFirst' w zależności od potrzeb
           options: {
             cacheName: "my-app-cache",
