@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!-- <p>Status isOpen: {{ isOpen }}</p> -->
     <UProgress 
       v-show="isLoading"
       size="xs" 

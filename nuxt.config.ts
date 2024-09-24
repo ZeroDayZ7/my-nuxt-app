@@ -1,7 +1,25 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   // modules: ['nuxt-security'],
-  modules: ['@nuxt/ui'],
+  modules: [
+    '@nuxt/ui', 
+    '@vite-pwa/nuxt'
+  ],
+  pwa: {
+    manifest: {
+      name: 'Centralne PNP',
+      short_name: 'CPNP',
+      lang: 'pl',
+      display: 'standalone',
+      start_url: '/my-nuxt-app/',
+      background_color: '#ffffff',
+      theme_color: '#4DBA87'
+    },
+    workbox: {
+      // Konfiguracja cache dla trybu offline
+    }
+  },
+
   css: [
     "~/assets/main.css", // Ścieżka do pliku CSS
   ],
