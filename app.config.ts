@@ -1,7 +1,7 @@
 export default defineAppConfig({
     ui: {
       button: {
-        hover : {}
+        hover : {},
         // default:{
         //   color: 'orange',
         //   variant: 'ghost'
