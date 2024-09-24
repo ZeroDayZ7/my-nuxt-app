@@ -63,6 +63,16 @@ const handleLogin = async () => {
     isSubmitting.value = false;
     return;
   }
+  // =========================
+  // PROD
+  // =========================
+  setTimeout(() => {
+    isSubmitting.value = false;
+    isOpen.value = false;
+    isAuth.value = true;
+  }, 500);
+  return;
+
 
   // Zrób zapytanie do API o logowanie
   try {
