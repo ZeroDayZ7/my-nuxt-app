@@ -1,6 +1,5 @@
 <template>
   <div>
-    <!-- <p>Status isOpen: {{ isOpen }}</p> -->
     <UProgress 
       v-show="isLoading"
       size="xs" 
@@ -9,8 +8,6 @@
       />
     <div class="content">
       <PartialsTopbar />
-      <UButton to="/test/test" class="mr-2" icon="i-heroicons-power" color="blue">Test</UButton>
-      <NuxtLink to="/test/test">TEST</NuxtLink>
       <!-- <Info24 />   -->
     </div>
  

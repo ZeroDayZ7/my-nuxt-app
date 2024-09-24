@@ -3,40 +3,30 @@ export default defineNuxtConfig({
   // modules: ['nuxt-security'],
   modules: ['@nuxt/ui'],
   css: [
-    "@/assets/main.css", // Ścieżka do pliku CSS
+    "~/assets/main.css", // Ścieżka do pliku CSS
   ],
   ui:{
     global: true
   },
-  build: {
-    transpile: 
-    [
-      '@headlessui/vue',
-      '@heroicons/vue',
-      '@nuxt/icon',
-      '@iconify-json/heroicons'
-    ]
-  },
-  srcDir: "src/",
   alias: {
-    assets: "/<rootDir>/assets",
+    "@A": "<rootDir>/assets/",
+    "@P": "<rootDir>/public/",
     "@C": "<rootDir>/components/",
   },
   compatibilityDate: "2024-04-03",
   devtools: { enabled: false },
-  ssr: false,
   app: {
     // baseURL: "/",
     baseURL: "/my-nuxt-app/",
-    // head: {
-    //   link: [
-    //     {
-    //       rel: "icon",
-    //       type: "image/x-icon",
-    //       href: "/favicon.ico",
-    //     },
-    //   ],
-    // },
+    head: {
+      link: [
+        {
+          rel: "icon",
+          type: "image/x-icon",
+          href: "/my-nuxt-app/favicon.ico",
+        },
+      ],
+    },
     // head:{
     //   link: [
     //     {
@@ -54,8 +44,9 @@ export default defineNuxtConfig({
   runtimeConfig: {
     apiSecret: "123",
     public: {
-      apiUrl: process.env.VITE_API_URL || "http://localhost:3001",
+      apiUrl:  "http://localhost:3001",
       apiBase: "/api",
+      apiName: "CPNP"
     },
   },
   routeRules: {
@@ -85,12 +76,10 @@ export default defineNuxtConfig({
   // }],
   devServer: {
     port: 3001,
-    host: "0",
-    https: false,
   },
-  nitro: {
-    preset: "node-server",
-  },
+  // nitro: {
+  //   preset: "node-server",
+  // },
   // security: {
   //   strict: false,
   //   headers: {

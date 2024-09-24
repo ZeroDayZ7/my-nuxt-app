@@ -1,0 +1,71 @@
+:root {
+  --background-color: #141414;
+  --font-color: white;
+  --link-color: rgb(0, 221, 218);
+  --link-color-hover: rgb(0, 147, 221);
+  --font-size: 14px;
+
+  --TRANSITION: 300ms;
+}
+html {
+  /* user-select: none; */
+}
+#app {
+  height: 100%;
+  display: flex;
+  /* overflow-y: scroll; */
+}
+html,
+body {
+  /* height: 100vh; */
+  height: 100%;
+}
+
+body {
+  scrollbar-color: rgb(62, 65, 68) rgb(22, 24, 28);
+  color: var(--font-color);
+  background: var(--background-color);
+
+  font-family: monospace;
+  font-size: 12px;
+}
+
+a{
+    color: var(--link-color);
+    text-decoration: none;
+}
+a:hover{
+  color: var(--link-color-hover);
+}
+
+.fr{
+  display: flex;
+  flex-direction: row;
+}
+
+button{
+  /* background-color: transparent; */
+}
+
+
+/* Dostosowanie wyglądu paska przewijania dla przeglądarek opartych na silniku Chromium */
+::-webkit-scrollbar {
+    width: 8px;
+    /* Szerokość paska przewijania */
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: var(--color-background);
+    /* Kolor tła ścieżki przewijania */
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    /* Kolor samego paska przewijania */
+    /* border-radius: 0px; /* Zaokrąglenie rogów paska przewijania */
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+    /* Kolor paska przewijania po najechaniu myszką */
+  }
