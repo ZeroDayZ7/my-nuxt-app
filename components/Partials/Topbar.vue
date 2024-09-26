@@ -1,5 +1,6 @@
 <template>
   <header>
+    {{ `Topbar: ${isAuth}` }}
     <div class="app-name ml-2">
       {{ useRuntimeConfig().public.apiName }}
     </div>
@@ -15,15 +16,6 @@
 
             </UChip>
           </div>
-          
-          <!-- <ClientOnly>
-            <UButton :icon="isDark ? 'i-heroicons-moon-20-solid' : 'i-heroicons-sun-20-solid'" color="gray"
-              variant="ghost" aria-label="Theme" @click="isDark = !isDark" />
-            <template #fallback>
-              <div class="w-8 h-8"></div>
-            </template>
-          </ClientOnly> -->
-
         </div>
       </div>
     </div>
@@ -34,20 +26,12 @@
 import About from '~/pages/about.vue';
 import LoginModal from '../Auth/LoginModal.vue';
 import MenuModal from '../Auth/MenuModal.vue';
-const isAuth = useAuth();
 
-// const colorMode = useColorMode()
-// const isDark = computed({
-//   get() {
-//     return colorMode.value === 'dark'
-//   },
-//   set() {
-//     colorMode.preference = colorMode.value === 'dark' ? 'light' : 'dark'
-//   }
-// })
+const { isLoggedIn } = useAuth();
+const isAuth = computed(() => isLoggedIn.value); 
 
 </script>
-
+ 
 <style scoped>
 .w100 {
   display: flex;
