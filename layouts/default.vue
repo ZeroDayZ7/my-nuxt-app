@@ -5,6 +5,16 @@
     {{ `isAuth: ${isAuth}`}}
     <br>
     {{ `isLoggedIn: ${isLoggedIn}`}}
+    <br>
+
+    <label>
+      <input type="checkbox" v-model="isAuth" />
+      Is Auth
+    </label>
+    <label>
+      <input type="checkbox" v-model="isLoggedIn" />
+      Is isLoggedIn
+    </label>
     <slot />
   </div>
 </template>
@@ -16,6 +26,6 @@ defineOptions({
 });
 
 const { isAuth, isLoggedIn } = useAuth();
-//
+
 
 </script>

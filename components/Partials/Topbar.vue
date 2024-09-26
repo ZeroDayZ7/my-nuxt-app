@@ -32,7 +32,7 @@ import LoginModal from '../Auth/LoginModal.vue';
 import MenuModal from '../Auth/MenuModal.vue';
 
 const { isAuth, isLoggedIn } = useAuth();
-//
+
 </script>
  
 <style scoped>
