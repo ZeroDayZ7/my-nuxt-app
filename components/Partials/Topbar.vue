@@ -1,6 +1,10 @@
 <template>
   <header>
-    {{ `Topbar: ${isAuth}` }}
+    =========   components/Partials/Topbar.vue   ============
+    <br>
+    {{ `isAuth: ${isAuth}`}}
+    <br>
+    {{ `isLoggedIn: ${isLoggedIn}`}}
     <div class="app-name ml-2">
       {{ useRuntimeConfig().public.apiName }}
     </div>
@@ -27,9 +31,8 @@ import About from '~/pages/about.vue';
 import LoginModal from '../Auth/LoginModal.vue';
 import MenuModal from '../Auth/MenuModal.vue';
 
-const { isLoggedIn } = useAuth();
-const isAuth = computed(() => isLoggedIn.value); 
-
+const { isAuth, isLoggedIn } = useAuth();
+//
 </script>
  
 <style scoped>

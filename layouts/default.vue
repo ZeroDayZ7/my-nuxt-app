@@ -1,19 +1,21 @@
 <template>
   <div>
-    {{ `Layouts: ${isAuth}`}}
+    =========   Layouts/default    ============
+    <br>
+    {{ `isAuth: ${isAuth}`}}
+    <br>
+    {{ `isLoggedIn: ${isLoggedIn}`}}
     <slot />
   </div>
 </template>
 
 
-<script setup>
+<script setup lang="ts">
 defineOptions({
   name: "DefaultLayout",
 });
-import { computed } from 'vue';
 
-import { useAuth } from '../composables/useAuth';
-// Uzyskanie dostępu do stanu logowania
-const { isLoggedIn } = useAuth();
-const isAuth = computed(() => isLoggedIn.value); 
+const { isAuth, isLoggedIn } = useAuth();
+//
+
 </script>

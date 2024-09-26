@@ -1,25 +1,75 @@
-// composables/useOpen.ts
-// export const useAuth = () => useState<boolean>('isAuth', () => false);
+import { ref, watch } from 'vue';
+import { useRouter } from 'vue-router'; // Dla przekierowań po wylogowaniu
 
+export const useAuth = () => {
+  const router = useRouter(); // Inicjalizacja routera
 
-// useAuth.js
-import { ref, computed } from "vue";
+  // Przechowujemy stan użytkownika
+  const currentUser = useState<object | null>('currentUser', () => null);
+  const token = useState<string | null>('token', () => null);
 
-export function useAuth() {
-  const isLoggedIn = ref(true); // On
-  // const isLoggedIn = ref(false); // Off
+  // const isLoggedIn = computed(() => !!token.value && !!currentUser.value);
 
-  const login = () => {
-    isLoggedIn.value = true; // Zmieniamy stan na zalogowany
+  
+  // const isLoggedIn = useState<boolean>('isLoggedIn', () => true);
+  const isLoggedIn = useState<boolean>('isLoggedIn', () => false);
+
+  const isAuth = ref(true);
+  // const isAuth = ref(false);
+
+  // Funkcja logowania
+  const login = (userData: object, authToken: string) => {
+    currentUser.value = userData;
+    token.value = authToken;
+    saveToLocalStorage();
   };
 
+  // Funkcja wylogowania
   const logout = () => {
-    isLoggedIn.value = false; // Zmieniamy stan na niezalogowany
+    currentUser.value = null;
+    token.value = null;
+    clearLocalStorage();
+    router.push('/login'); // Przekierowanie użytkownika po wylogowaniu
   };
+
+  // Funkcja sprawdzająca autoryzację - przywraca stan po odświeżeniu
+  const checkAuth = () => {
+    const storedUser = localStorage.getItem("currentUser");
+    const storedToken = localStorage.getItem("token");
+    if (storedUser && storedToken) {
+      currentUser.value = JSON.parse(storedUser);
+      token.value = storedToken;
+    }
+  };
+
+  // Zapis danych do localStorage
+  const saveToLocalStorage = () => {
+    if (currentUser.value && token.value) {
+      localStorage.setItem("currentUser", JSON.stringify(currentUser.value));
+      localStorage.setItem("token", token.value);
+    }
+  };
+
+  // Czyszczenie localStorage
+  const clearLocalStorage = () => {
+    localStorage.removeItem("currentUser");
+    localStorage.removeItem("token");
+  };
+
+  // Watcher reagujący na zmiany w stanie `isLoggedIn`
+  // watch(isLoggedIn, (newValue) => {
+  //   if (!newValue) {
+  //     logout(); // Wywołanie wylogowania automatycznie, gdy isLoggedIn zmienia się na false
+  //   }
+  // });
 
   return {
-    isLoggedIn, // Obliczana wartość
-    login,
-    logout,
+    isAuth, 
+    isLoggedIn,                         // Computed stan zalogowania
+    currentUser,                        // Dane aktualnego użytkownika
+    token,                              // Token autoryzacyjny
+    login,                              // Funkcja logowania
+    logout,                             // Funkcja wylogowania
+    checkAuth,                          // Sprawdzanie autoryzacji
   };
-}
+};
