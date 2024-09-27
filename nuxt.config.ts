@@ -6,7 +6,7 @@ export default defineNuxtConfig({
     "@vite-pwa/nuxt"
   ],
   app: {
-    baseURL: "/my-nuxt-app/",
+    baseURL: `/${process.env.APP_NAME}/`,
     head: {
       title: 'Centrum PNP',
       link: [
@@ -111,12 +111,13 @@ export default defineNuxtConfig({
     COOKIE_MAX_AGE: process.env.COOKIE_MAX_AGE,
     COOKIE_SECURE: process.env.COOKIE_SECURE,
     public: {
-      apiUrl: "http://localhost:3001/my-nuxt-app",
+      apiUrl: process.env.APP_URL,
     },
   },
   routeRules: {
-    "/": {
+    "/**": {
       prerender: false,
+      appMiddleware: ["auth"],
     },
     "/api/**": {
       cors: true,
@@ -136,10 +137,15 @@ export default defineNuxtConfig({
     },
   },
   ssr: false,
-  // components: [{
-  //   path: '~/components',
-  //   pathPrefix: false,
-  // }],
+  components: {
+    dirs: [
+      {
+        path: "~/components",
+        priority: 2,
+      },
+    ],
+    global: true,
+  },
   devServer: {
     port: 3001,
   },

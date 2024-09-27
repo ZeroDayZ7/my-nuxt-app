@@ -1,10 +1,5 @@
 <template>
   <header>
-    =========   components/Partials/Topbar.vue   ============
-    <br>
-    {{ `isAuth: ${isAuth}`}}
-    <br>
-    {{ `isLoggedIn: ${isLoggedIn}`}}
     <div class="app-name ml-2">
       {{ useRuntimeConfig().public.apiName }}
     </div>
@@ -12,13 +7,11 @@
       <div class="fr">
         <About />
         <div class="w100">
-          <LoginModal v-if="!isAuth" />
+          <LoginModal v-if="!isLoggedIn" />
           <div class="flex flex-row" v-else>
-            <UChip text="3" size="2xl" class="mr-2" inset>
-              <MenuModal />
+              <!-- <MenuModal /> -->
+          <UButton to="/menu" variant="ghost" icon="i-heroicons-bars-4" label="Menu"/>
 
-
-            </UChip>
           </div>
         </div>
       </div>
@@ -31,7 +24,7 @@ import About from '~/pages/about.vue';
 import LoginModal from '../Auth/LoginModal.vue';
 import MenuModal from '../Auth/MenuModal.vue';
 
-const { isAuth, isLoggedIn } = useAuth();
+const { isLoggedIn } = useAuth();
 
 </script>
  

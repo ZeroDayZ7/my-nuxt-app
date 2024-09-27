@@ -25,7 +25,7 @@ useHead({
   title: `${route.meta.title}`
 })
 const isLoading = useLoading();
-// const isOpen = useOpen();
+// const { isOpen } = useModal();
 
 // const toast = useToast();
 

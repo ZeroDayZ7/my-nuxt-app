@@ -1,21 +1,15 @@
 // middleware/auth.ts
 
 export default defineNuxtRouteMiddleware((to, from) => {
-    // Zakładając, że trzymasz informacje o zalogowaniu w localStorage lub w Vuex
-    const isAuthenticated = useState('isAuthenticated', () => false); // Przykład - zmień na swoją logikę
+  const { isLoggedIn } = useAuth();
 
-    if (!isAuthenticated.value && to.path !== '/login') {
-      return navigateTo('/login');
+    // Sprawdzenie, czy użytkownik nie jest zalogowany
+    if (!isLoggedIn.value) {
+      // Jeśli użytkownik nie jest zalogowany i jest na stronie głównej, nie przekierowuj ponownie na tę stronę
+      if (to.path !== '/') {
+        return navigateTo('/'); // Przekieruj na stronę główną
+      }
     }
-  });
 
-// import { defineNuxtRouteMiddleware, useNuxtApp } from "#app";
-
-// export default defineNuxtRouteMiddleware(() => {
-//   const { $auth } = useNuxtApp();
-//   const isAuthenticated = $auth.isAuthenticated(); // Sprawdź, czy użytkownik jest zalogowany
-
-//   if (!isAuthenticated) {
-//     return navigateTo("/login"); // Przekierowanie do strony logowania, jeśli użytkownik nie jest zalogowany
-//   }
-// });
+    console.log(`Sprawdzam Auth`);
+});
