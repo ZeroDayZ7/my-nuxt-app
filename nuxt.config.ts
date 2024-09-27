@@ -115,20 +115,14 @@ export default defineNuxtConfig({
     COOKIE_MAX_AGE: process.env.COOKIE_MAX_AGE,
     COOKIE_SECURE: process.env.COOKIE_SECURE,
     public: {
-<<<<<<< HEAD
       // apiUrl: process.env.APP_URL,
-=======
->>>>>>> parent of 0e522fc (+ profile)
       apiUrl: "http://localhost:3001/my-nuxt-app",
     },
   },
   routeRules: {
     "/": {
       prerender: false,
-<<<<<<< HEAD
       // appMiddleware: ["auth"],
-=======
->>>>>>> parent of 0e522fc (+ profile)
     },
     "/api/**": {
       cors: true,
