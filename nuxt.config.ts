@@ -6,7 +6,8 @@ export default defineNuxtConfig({
     "@vite-pwa/nuxt"
   ],
   app: {
-    baseURL: `/${process.env.APP_NAME}/`,
+    // baseURL: `/${process.env.APP_NAME}/`,
+    baseURL: "/my-nuxt-app/",
     head: {
       title: 'Centrum PNP',
       link: [
@@ -111,7 +112,8 @@ export default defineNuxtConfig({
     COOKIE_MAX_AGE: process.env.COOKIE_MAX_AGE,
     COOKIE_SECURE: process.env.COOKIE_SECURE,
     public: {
-      apiUrl: process.env.APP_URL,
+      // apiUrl: process.env.APP_URL,
+      apiUrl: "http://localhost:3001/my-nuxt-app",
     },
   },
   routeRules: {
