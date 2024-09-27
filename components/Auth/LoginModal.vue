@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const { isOpen } = useModal();
+const isOpen = useOpen();
 </script>
 
 <template>
