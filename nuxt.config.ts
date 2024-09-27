@@ -133,10 +133,6 @@ export default defineNuxtConfig({
       ssr: false,
       appMiddleware: ["auth"],
     },
-    "/dashbaord/": {
-      ssr: true,
-      appMiddleware: ["auth"],
-    },
   },
   ssr: false,
   components: {
