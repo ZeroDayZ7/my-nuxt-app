@@ -119,7 +119,7 @@ export default defineNuxtConfig({
   routeRules: {
     "/**": {
       prerender: false,
-      appMiddleware: ["auth"],
+      // appMiddleware: ["auth"],
     },
     "/api/**": {
       cors: true,
