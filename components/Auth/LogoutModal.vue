@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { logoutUser } from '~/services/auth';
 
-const isOpen = useOpen();
-const isAuth = useAuth();
+const { isOpen } = useModal();
+const { isLoggedIn } = useAuth();
 // const isSubmitting = useSubmitting();
 const isSubmitting = ref(false);
 const isLogout = ref(false);
@@ -28,8 +28,8 @@ const handleLogoutYes = async () => {
   setTimeout(() => {
     isSubmitting.value = false;
     messageError.value = "Coś poszło nie tak!"
-    // isOpen.value = false;
-    // isAuth.value = true;
+    isOpen.value = false;
+    isLoggedIn.value = true;
   }, 1000);
   return;
 
@@ -38,7 +38,7 @@ const handleLogoutYes = async () => {
     const response: AuthResponse = await logoutUser();
 
     if ('token' in response) { // Sprawdzamy, czy odpowiedź zawiera token
-      isAuth.value = false;
+      isLoggedIn.value = false;
       isLogout.value = false; // Zamknij modal po wylogowaniu
       isOpen.value = false; 
     } else {
@@ -74,8 +74,6 @@ const handleLogoutYes = async () => {
           </UCard>
         </UModal>
       </div>
-
-
 </template>
 
 
