@@ -41,8 +41,8 @@ const loginError = ref('');
 
 const isSubmitting = ref(false);
 
-const { isOpen }= useModal();
-const { isLoggedIn } = useAuth();
+const isOpen = useOpen();
+const isAuth = useAuth();
 
 const validateEmail = (email: string) => {
   const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -69,17 +69,17 @@ const handleLogin = async () => {
   setTimeout(() => {
     isSubmitting.value = false;
     isOpen.value = false;
-    isLoggedIn.value = true;
+    isAuth.value = true;
   }, 500);
   return;
-
+ 
 
   // Zrób zapytanie do API o logowanie
   try {
     const response: AuthResponse = await loginUser(email.value, password.value);
 
     if ('token' in response) { // Sprawdzamy, czy odpowiedź zawiera token
-      isLoggedIn.value = true;
+      isAuth.value = true;
       isOpen.value = false;
     } else {
       messageError.value = response.message; // Używamy wiadomości z błędu

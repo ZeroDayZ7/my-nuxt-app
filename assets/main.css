@@ -8,7 +8,7 @@
   --TRANSITION: 300ms;
 }
 html {
-  /* user-select: none; */
+  user-select: none;
 }
 #app {
   height: 100%;

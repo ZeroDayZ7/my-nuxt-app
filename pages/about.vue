@@ -38,7 +38,7 @@ const handleAboutClick = () => {
   setTimeout(() => {
     isLoading.value = false;
     isOpen.value = true;
-  }, 500);
+  }, 2000);
 
 };
 </script>
