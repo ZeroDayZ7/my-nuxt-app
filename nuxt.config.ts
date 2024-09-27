@@ -6,10 +6,7 @@ export default defineNuxtConfig({
     "@vite-pwa/nuxt"
   ],
   app: {
-<<<<<<< HEAD
     // baseURL: `/${process.env.APP_NAME}/`,
-=======
->>>>>>> parent of 0e522fc (+ profile)
     baseURL: "/my-nuxt-app/",
     head: {
       title: 'Centrum PNP',
