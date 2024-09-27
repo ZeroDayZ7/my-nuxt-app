@@ -72,7 +72,7 @@ const handleLogin = async () => {
     isLoggedIn.value = true;
   }, 500);
   return;
-
+ 
 
   // Zrób zapytanie do API o logowanie
   try {
