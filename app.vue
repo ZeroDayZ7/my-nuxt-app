@@ -18,7 +18,7 @@
 const layout = "default";
 const runtimeConfig = useRuntimeConfig();
 console.log(runtimeConfig.public.apiUrl);
-
+console.log(`app.vue`);
 </script>
 
 <style scoped>
