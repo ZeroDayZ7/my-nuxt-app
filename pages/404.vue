@@ -1,8 +1,7 @@
-<!-- /pages/403.vue -->
 <template>
-  <div class="access-denied-container">
-    <h1>403 - Brak uprawnień</h1>
-    <p>Nie masz uprawnień do przeglądania tej strony.</p>
+  <div class="not-found-container">
+    <h1>404 - Strona nie znaleziona</h1>
+    <p>Przepraszamy, ale strona, której szukasz, nie istnieje lub nie masz do niej dostępu.</p>
     <NuxtLink to="/" class="back-home-button">
       Powrót na stronę główną
     </NuxtLink>

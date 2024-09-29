@@ -5,7 +5,7 @@
     </div>
     <div class="tbpanel">
       <div class="fr">
-        <UButton to="/menu" variant="ghost" icon="i-heroicons-bars-4" label="Menu"/>
+        <!-- <UButton to="/menu" variant="ghost" icon="i-heroicons-bars-4" label="Menu"/> -->
         <About />
         <div class="w100">
           <LoginModal v-if="!isLoggedIn" />
@@ -23,7 +23,7 @@
 <script setup lang="ts">
 import About from '~/pages/about.vue';
 import LoginModal from '../Auth/LoginModal.vue';
-import MenuModal from '../Auth/MenuModal.vue';
+// import MenuModal from '../Auth/MenuModal.vue';
 
 const { isLoggedIn } = useAuth();
 

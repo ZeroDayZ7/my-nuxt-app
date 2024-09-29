@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import LogoutModal from './LogoutModal.vue';
 
-const { isOpen } = useModal();
+const { isOpen } = useModalNuxtUi();
 const isAuth = useAuth();
 
 const isLogout = ref(false);

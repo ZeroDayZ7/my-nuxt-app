@@ -40,7 +40,7 @@ const loginError = ref('');
 
 const isSubmitting = ref(false);
 
-const { isOpen }= useModal();
+const { isOpen }= useModalNuxtUi();
 const { isLoggedIn } = useAuth();
 
 const validateEmail = (email: string) => {
@@ -51,7 +51,11 @@ const validateEmail = (email: string) => {
 const validatePassword = (password: string) => {
   return password.length >= 6;
 };
+const saveToLocalStorage = (isLoggedIn: boolean) => {
+    localStorage.setItem("isLoggedIn", isLoggedIn.toString());
+};
 
+// ======================================================
 const handleLogin = async () => {
   if (isSubmitting.value) return;  // Zapobiegaj wielokrotnemu wysyłaniu
 
@@ -65,12 +69,20 @@ const handleLogin = async () => {
   // =========================
   // PROD
   // =========================
-  setTimeout(() => {
+  try{
+    setTimeout(() => {
     isSubmitting.value = false;
     isOpen.value = false;
     isLoggedIn.value = true;
-    updateIsLoggedIn(isLoggedIn, isLoggedIn.value);
+    console.log("Logging in...");
+    navigateTo("/menu");
+    saveToLocalStorage(isLoggedIn.value);
+
   }, 500);
+  } finally {
+
+  }
+  
   return;
 
 

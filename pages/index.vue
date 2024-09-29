@@ -20,6 +20,13 @@ const route = useRoute()
 useHead({
   title: `${route.meta.title}`
 })
+const isLoading = useLoading();
+// const { isOpen } = useModalNuxtUi();
+
+// const toast = useToast();
+
+
+
 </script>
 
 <style scoped>

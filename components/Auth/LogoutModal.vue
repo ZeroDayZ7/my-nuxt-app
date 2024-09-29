@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { logoutUser } from '~/services/auth';
 
-const { isOpen } = useModal();
+const { isOpen } = useModalNuxtUi();
 const { isLoggedIn } = useAuth();
 // const isSubmitting = useSubmitting();
 const isSubmitting = ref(false);

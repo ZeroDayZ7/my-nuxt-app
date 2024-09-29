@@ -118,9 +118,10 @@ export default defineNuxtConfig({
     },
   },
   routeRules: {
-    "/": {
+    "/**": {
       prerender: false,
-      // appMiddleware: ["auth"],
+    },
+    "/menu/**": {
     },
     "/api/**": {
       cors: true,
@@ -132,7 +133,6 @@ export default defineNuxtConfig({
     },
     "/admin/**": {
       ssr: false,
-      appMiddleware: ["auth"],
     },
   },
   ssr: false,
