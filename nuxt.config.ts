@@ -101,7 +101,7 @@ export default defineNuxtConfig({
   alias: {
     "@A": "<rootDir>/assets/",
     "@P": "<rootDir>/public/",
-    "@C": "<rootDir>/components/",
+    "CC": "<srcDir>/components/",
   },
   compatibilityDate: "2024-04-03",
   devtools: {

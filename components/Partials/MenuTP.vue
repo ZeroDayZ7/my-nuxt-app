@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import LogoutModal from '~/components/Auth/LogoutModal.vue';
 const isLogout = ref(false);
+const toast = useToast();
 
 </script>
 
@@ -8,7 +9,7 @@ const isLogout = ref(false);
   <div>
     <!-- Główny Modal Menu -->
     <UCard :ui="{
-      base: 'flex flex-col overflow-y-auto',
+      base: 'flex flex-col',
       rounded: '',
       divide: 'divide-y divide-gray-100 dark:divide-gray-800',
       body: {
@@ -20,7 +21,10 @@ const isLogout = ref(false);
           <div class="flex">
             <!-- Test -->
             <div class="mx-2">
-              <UButton to="/users/profile" icon="i-heroicons-user" color="blue" />
+              <UButton to="/users/profile" icon="i-heroicons-user" color="orange" />
+            </div>
+            <div class="mx-2">
+              <UButton to="/test/test" icon="i-heroicons-fire" color="blue" />
             </div>
             <!-- Messages -->
             <div class="mx-2">
@@ -28,6 +32,7 @@ const isLogout = ref(false);
                 <UButton to="/messages/messages" variant="solid" icon="i-heroicons-chat-bubble-left-ellipsis"
                   color="green" @click="isLogout = true" />
               </UChip>
+              <!-- <UButton label="Show toast" @click="toast.add({ title: 'Hello world!' })" /> -->
             </div>
             <!-- Logout -->
           </div>
@@ -43,7 +48,8 @@ const isLogout = ref(false);
           <ULink to="/" active-class="text-primary"
             inactive-class="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200">
             Profile
-          </ULink>
+          </ULink><br>
+
         </div>
       </div>
       <!-- Koniec Modal wylogowania -->
