@@ -45,7 +45,7 @@ const handleAboutClick = () => {
 
 <template>
   <div>
-    <UButton variant="ghost" icon="i-heroicons-information-circle" label="o Nas" @click="handleAboutClick"/>
+    <UButton variant="ghost" icon="i-heroicons-information-circle" label="About" @click="handleAboutClick"/>
 
     <UModal v-model="isOpen" :ui="{
       container: 'min-h-0 lg:min-h-full'

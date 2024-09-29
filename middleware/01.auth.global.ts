@@ -1,49 +1,27 @@
 // middleware/auth.ts
 
 export default defineNuxtRouteMiddleware((to, from) => {
-  const { isLoggedIn } = useAuth();
-  const { isOpen } = useModalNuxtUi();
+  const { isLoggedIn } = useAuth(); // Pobierz wartość isLoggedIn z kontekstu autoryzacji
 
-  const router = useRouter();
+  // Sprawdzenie, czy użytkownik jest zalogowany
+  const isLoggedString = localStorage.getItem('isLoggedIn');
 
-  const routes = router.getRoutes();
-  const routeExists = routes.some((route) => route.path === to.path);
+  if (isLoggedString !== null) {
+    // Zamiana na liczbę
+    if(isLoggedString === 'false'){
+      isLoggedIn.value = false;
+    }else{
+      isLoggedIn.value = true;
+    }}
+   
 
-  const test = to.matched.length;
-  console.log(`Sprawdzam Auth`);
-  console.log("routeExists: " + routeExists);
-  console.log("to.matched.length: " + test);
-  console.log("isLoggedIn: " + isLoggedIn.value);
-
-  // if (to.path !== '/' && !isLoggedIn.value) {
-  //   throw createError({ statusCode: 403, statusMessage: 'Forbidden' });
-  // }
-
-  if (to.path !== "/") {
-    if (!isLoggedIn.value) {
-      isOpen.value = true;
-      return navigateTo("/");
-    }
+    console.log(`AUTH LOCALSTORAGE: ${isLoggedString}`);
+    console.log(`AUTH isLoggedIn: ${isLoggedIn.value}`);
+    
+  if (to.path !== "/" && !isLoggedIn.value) {
+    console.log(`Access Denied`);
+    return abortNavigation('Insufficient permissions.', );
+    // return navigateTo('/403', { redirectCode: 403 })
+    // return navigateTo('/04');
   }
-
-  //   if (to.path !== '/' && !isLoggedIn.value) {
-  //     throw createError({ statusCode: 403, statusMessage: 'Forbidden' });
-  //   }
-  // }
-
-
-  // if (to.path !== "/") {
-  //   if (!isLoggedIn.value) {
-  //     isOpen.value = true;
-  //     console.log(`if (!isLoggedIn.value)`);
-  //     return navigateTo("/");
-  //   }
-
-  //   if (!routeExists && !test) {
-  //     console.log(`if(!routeExists && !test)`);
-  //     return navigateTo("/AAA");
-  //   }
-  // }
-
-  console.log(`Sprawdzam Auth`);
 });

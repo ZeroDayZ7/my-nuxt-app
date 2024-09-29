@@ -1,15 +1,11 @@
 <template>
   <div>
-    <!-- <p>Status isOpen: {{ isOpen }}</p> -->
-    <UProgress 
-      v-show="isLoading"
-      size="xs" 
-      animation="carousel"
-      class="fixed top-0 left-0 w-full z-50"
-      />
     <div class="content">
       <PartialsTopbar />
       <!-- <Info24 />   -->
+    </div>
+    <div>
+      
     </div>
  
   </div>
@@ -24,13 +20,6 @@ const route = useRoute()
 useHead({
   title: `${route.meta.title}`
 })
-const isLoading = useLoading();
-// const { isOpen } = useModalNuxtUi();
-
-// const toast = useToast();
-
-
-
 </script>
 
 <style scoped>

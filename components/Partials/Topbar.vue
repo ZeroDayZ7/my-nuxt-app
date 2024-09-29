@@ -5,6 +5,7 @@
     </div>
     <div class="tbpanel">
       <div class="fr">
+        <UButton to="/menu" variant="ghost" icon="i-heroicons-bars-4" label="Menu"/>
         <About />
         <div class="w100">
           <LoginModal v-if="!isLoggedIn" />

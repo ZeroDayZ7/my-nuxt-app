@@ -1,15 +1,13 @@
 <template>
   <div>
-    <!-- =========   Layouts/default    ============
+   
+    ========= Layouts/default ============
+    <br>    
+    {{ `isLoggedIn: ${isLoggedIn}` }}
+    <input type="checkbox" v-model="isLoggedIn" @change="handleCheckboxChange" />
     <br>
-    {{ `isLoggedIn: ${isLoggedIn}`}}
-    <br>
-    <label>
-      <input type="checkbox" v-model="isLoggedIn" @change="handleCheckboxChange" />
-      Is isLoggedIn
-    </label> -->
-
-    <slot />
+    ======================================
+      <slot />
   </div>
 </template>
 
@@ -18,12 +16,12 @@
 import { computed } from 'vue';
 import { useRoute } from 'vue-router';
 
-const route = useRoute();
 
+const route = useRoute();
+const { isLoggedIn } = useAuth();
 defineOptions({
   name: "DefaultLayout",
 });
-const { isLoggedIn } = useAuth();
 
 const handleCheckboxChange = () => {
   updateIsLoggedIn(isLoggedIn.value); // Wywołanie funkcji, aby zaktualizować stan i zapisać w localStorage
@@ -31,12 +29,34 @@ const handleCheckboxChange = () => {
 };
 
 const updateIsLoggedIn = (value: boolean) => {
-    isLoggedIn.value = value;
-    saveToLocalStorage(); // Zapisz po aktualizacji
-  };
+  isLoggedIn.value = value;
+  console.log(`updateIsLoggedIn: ${isLoggedIn.value}`);
+  saveToLocalStorage(); // Zapisz po aktualizacji
+};
 
-  const saveToLocalStorage = () => {
-    localStorage.setItem("isLoggedIn", isLoggedIn.value.toString());
-  };
+const saveToLocalStorage = () => {
+  console.log();
+  localStorage.setItem("isLoggedIn", isLoggedIn.value.toString());
+};
+
+onMounted(() => {
+
+  console.log(`DEFAULT isLoggedIn: ${isLoggedIn.value}`);
+
+  const isLoggedString = localStorage.getItem('isLoggedIn');
+  if (isLoggedString !== null) {
+    // Zamiana na liczbę
+    if (isLoggedString === 'false') {
+      isLoggedIn.value = false;
+    } else {
+      isLoggedIn.value = true;
+    }
+  }
+
+  console.log(`DEFAULT LOCALSTORAGE BOOLEAN: ${isLoggedString}`);
+  // Sprawdzenie, czy konwersja się powiodła
+
+
+});
 
 </script>
