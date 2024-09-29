@@ -20,7 +20,7 @@ const isLogout = ref(false);
           <div class="flex">
             <!-- Test -->
             <div class="mx-2">
-              <UButton to="/users/profile" icon="i-heroicons-user" color="blue" />
+              <!-- <UButton to="/users/profile" icon="i-heroicons-user" color="blue" /> -->
             </div>
             <!-- Messages -->
             <div class="mx-2">
