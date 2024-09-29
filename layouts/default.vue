@@ -1,12 +1,12 @@
 <template>
   <div>
    
-    <!-- ========= Layouts/default ============
+    ========= Layouts/default ============
     <br>    
     {{ `isLoggedIn: ${isLoggedIn}` }}
     <input type="checkbox" v-model="isLoggedIn" @change="handleCheckboxChange" />
     <br>
-    ====================================== -->
+    ======================================
       <slot />
   </div>
 </template>
