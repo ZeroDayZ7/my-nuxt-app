@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import LogoutModal from '~/components/Auth/LogoutModal.vue';
+import AccordionMenu from '../Menu/AccordionMenu.vue';
 const isLogout = ref(false);
 const toast = useToast();
 
@@ -24,7 +25,7 @@ const toast = useToast();
               <UButton to="/users/profile" icon="i-heroicons-user" color="orange" />
             </div>
             <div class="mx-2">
-              <UButton to="/test/test" icon="i-heroicons-fire" color="blue" />
+              <UButton to="/test/test" icon="i-heroicons-fire" color="blue">TEST</UButton>
             </div>
             <!-- Messages -->
             <div class="mx-2">
@@ -45,10 +46,7 @@ const toast = useToast();
       <div>
 
         <div class="flex-auto mt-2">
-          <ULink to="/" active-class="text-primary"
-            inactive-class="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200">
-            Profile
-          </ULink><br>
+         <AccordionMenu />
 
         </div>
       </div>

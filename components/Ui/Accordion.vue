@@ -69,21 +69,21 @@
   .accordion-header {
     width: 100%;
     padding: 10px;
-    color: #000000;
+    color: #00d0d0;
     font-size: 18px;
     border: none;
     text-align: left;
     outline: none;
     cursor: pointer;
     transition: 0.4s;
-    background-color: #8d8d8d;
+    background-color: #003152;
   }
   .accordion-header:hover{
     /* background-color: #4d4d4d; */
   }
   
   .accordion-header.active {
-    background-color: #129cbe;
+    background-color: #006680;
   }
   
   .accordion-header.disabled {
