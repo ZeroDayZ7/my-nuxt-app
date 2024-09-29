@@ -27,9 +27,11 @@ const handleLogoutYes = async () => {
 
   setTimeout(() => {
     isSubmitting.value = false;
-    messageError.value = "Coś poszło nie tak!"
+    // messageError.value = "Coś poszło nie tak!"
     isOpen.value = false;
-    isLoggedIn.value = true;
+    isLoggedIn.value = false;
+    isLogout.value = false;
+    navigateTo('/');
   }, 1000);
   return;
 

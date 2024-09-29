@@ -2,47 +2,13 @@
 import LogoutModal from '~/components/Auth/LogoutModal.vue';
 const isLogout = ref(false);
 
-const loadTime = ref(0);
-const loadingMenu = ref(false);
-
-const renderStartTime = ref(0);
-const renderEndTime = ref(0);
-
-const showMenu = async () => {
-  // Rozpoczynamy mierzenie czasu
-  const startTime = performance.now();
-  loadingMenu.value = true;
-  renderStartTime.value = startTime;
-
-  try {
-    // Poczekaj na zakończenie cyklu renderowania, aby upewnić się, że modal w pełni się załadował
-    await nextTick();
-    // Dodaj niewielkie opóźnienie, aby symulować opóźnienia w środowisku produkcyjnym
-    // await new Promise(resolve => setTimeout(resolve, 100));
-    await nextTick(); // czeka na otwarcie modalnego
-    renderEndTime.value = performance.now();
-    console.log(`Rzeczywisty czas renderowania modalnego: ${(renderEndTime.value - renderStartTime.value) / 1000} sekund`);
-  } finally {
-    // Koniec mierzenia czasu
-
-    const endTime = performance.now();
-    loadTime.value = (endTime - startTime) / 1000; // Czas w sekundach
-    loadingMenu.value = false;
-    console.log(`Czas ładowania menu: ${loadTime.value} sekund`);
-  }
-};
-
-
-
-const route = useRoute()
-
 </script>
 
 <template>
-  <div class="mr-2">
+  <div>
     <!-- Główny Modal Menu -->
     <UCard :ui="{
-      base: 'h-full flex flex-col overflow-y-auto',
+      base: 'flex flex-col overflow-y-auto',
       rounded: '',
       divide: 'divide-y divide-gray-100 dark:divide-gray-800',
       body: {
@@ -64,13 +30,9 @@ const route = useRoute()
               </UChip>
             </div>
             <!-- Logout -->
-            <div class="ml-12">
-              <slot name="actions"></slot> <!-- Miejsce na dodatkowe elementy -->
-              <LogoutModal />
-            </div>
           </div>
-          <p>{{ loadTime }}</p>
-          <UButton to="/" color="red" variant="ghost" icon="i-heroicons-x-mark-20-solid" class="-my-1" />
+
+          <LogoutModal />
         </div>
       </template>
 
