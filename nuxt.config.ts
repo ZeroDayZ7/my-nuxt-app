@@ -118,7 +118,7 @@ export default defineNuxtConfig({
     },
   },
   routeRules: {
-    "/": {
+    "/**": {
       prerender: false,
     },
     "/menu/**": {
