@@ -27,7 +27,7 @@
           <div
             v-for="contact in filteredContacts"
             :key="contact.id"
-            @click="selectContact(contact)"
+            @click="handleContactClick(contact)"
             class="p-4 cursor-pointer"
             :class="{ 'bg-blue-700': selectedContact?.id === contact.id }"
           >
@@ -48,7 +48,7 @@
       <div class="flex-1 flex flex-col">
         <!-- Nagłówek czatu -->
        
-        <div class="p-4 flex justify-between items-center border-b">
+        <div class="p-4 flex justify-between items-center border-b" @click="isOpen = true">
           <div v-if="selectedContact" class="flex items-center">
             <img :src="selectedContact.avatar" alt="Avatar" class="w-10 h-10 rounded-full mr-3" />
             <div class="font-bold">{{ selectedContact.name }}</div>
@@ -60,7 +60,6 @@
             <button class="p-2 hover:bg-green-100 rounded">
               <i class="fas fa-cog"></i>
             </button>
-            <UButton label="Open" @click="isOpen = true" />
           </div>
         </div>
   
@@ -111,6 +110,12 @@
   <script setup>
   import { ref, computed, onMounted, nextTick } from 'vue';
   const isOpen = ref(false);
+
+  const handleContactClick = (contact) => {
+  selectContact(contact); // Wywołaj istniejącą logikę
+  isOpen.value = false;
+};
+
   const contacts = ref([
     {
       id: 1,
