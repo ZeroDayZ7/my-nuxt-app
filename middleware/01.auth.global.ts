@@ -1,19 +1,28 @@
 // middleware/auth.ts
 
 export default defineNuxtRouteMiddleware((to, from) => {
-  const { isLoggedIn } = useAuth();
-  const { isOpen } = useModalNuxtUi();
+  const { isLoggedIn } = useAuth(); // Pobierz wartość isLoggedIn z kontekstu autoryzacji
 
-  console.log(`isLoggedIn: ${isLoggedIn.value}`);
+  // Sprawdzenie, czy użytkownik jest zalogowany
+  const isLoggedString = localStorage.getItem('isLoggedIn');
 
-  // Sprawdzenie, czy użytkownik nie jest zalogowany
-  if (!isLoggedIn.value) {
-    // Przekieruj na stronę główną, jeśli próbujesz wejść na inną ścieżkę
-    if (to.path !== "/") {
-      isOpen.value = true; // Pokazuje modal logowania
-      return navigateTo("/"); // Przekieruj na stronę główną
-    }
+  if (isLoggedString !== null) {
+    // Zamiana na liczbę
+    if(isLoggedString === 'false'){
+      isLoggedIn.value = false;
+    }else{
+      isLoggedIn.value = true;
+    }}
+   
+
+    console.log(`AUTH LOCALSTORAGE: ${isLoggedString}`);
+    console.log(`AUTH isLoggedIn: ${isLoggedIn.value}`);
+    
+  if (to.path !== "/" && !isLoggedIn.value) {
+    console.log(`Access Denied`);
+    return abortNavigation('Insufficient permissions.');
+    // return navigateTo('/');
   }
-
-  console.log(`Sprawdzam Auth2`);
+  console.log(`XXX`);
 });
+
