@@ -21,12 +21,12 @@ const toast = useToast();
         <div class="flex items-center justify-between">
           <div class="flex">
             <!-- Test -->
-            <div class="mx-2">
-              <UButton to="/users/profile" icon="i-heroicons-user" color="orange" />
+            <!-- <div class="mx-2">
+              <UButton to="/users/Profile" icon="i-heroicons-user" color="orange">TEST</UButton>
             </div>
             <div class="mx-2">
               <UButton to="/test/test" icon="i-heroicons-fire" color="blue">TEST</UButton>
-            </div>
+            </div> -->
             <!-- Messages -->
             <div class="mx-2">
               <UChip text="3" size="2xl">

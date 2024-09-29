@@ -3,7 +3,7 @@
     <Accordion :initialTabs="accordionTabs" :allowMultiple="false">
       <template #tab1>
         <div class="flex flex-col">
-          <UButton class="mt-2" to="/users/profile" icon="i-heroicons-fire" color="blue">Dowód osobisty</UButton>
+          <UButton class="mt-2" to="/users/Profile" icon="i-heroicons-fire" color="blue">Dowód osobisty</UButton>
           <UButton class="mt-2" to="/test/test" icon="i-heroicons-fire" color="blue">Prawo jazdy</UButton>
           <UButton class="mt-2" to="/test/test" icon="i-heroicons-fire" color="blue" disabled>Paszport</UButton>
           <UButton class="mt-2" to="/test/test" icon="i-heroicons-fire" color="blue" disabled>Legitymacje</UButton>

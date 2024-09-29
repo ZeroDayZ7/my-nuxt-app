@@ -78,9 +78,9 @@
     transition: 0.4s;
     background-color: #003152;
   }
-  .accordion-header:hover{
-    /* background-color: #4d4d4d; */
-  }
+  /* .accordion-header:hover{
+    background-color: #4d4d4d;
+  } */
   
   .accordion-header.active {
     background-color: #006680;

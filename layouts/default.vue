@@ -1,7 +1,7 @@
 <template>
   <div> 
-    <!-- {{ `isLoggedIn: ${isLoggedIn}` }}
-    <input type="checkbox" v-model="isLoggedIn" @change="handleCheckboxChange" /> -->
+    {{ `isLoggedIn: ${isLoggedIn}` }}
+    <input type="checkbox" v-model="isLoggedIn" @change="handleCheckboxChange" />
       <slot />
   </div>
 </template>

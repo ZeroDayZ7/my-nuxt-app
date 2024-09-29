@@ -1,9 +1,21 @@
 <!-- MessengerComponent.vue -->
 <template>
     <div class="flex h-screen">
-      <!-- Lista kontaktów -->
-      <div class="w-3/4 border-r">
-        <div class="p-4 border-b">
+  <USlideover v-model="isOpen">
+      <div class="p-4 flex-1">
+        <UButton
+          color="gray"
+          variant="ghost"
+          size="sm"
+          icon="i-heroicons-x-mark-20-solid"
+          class="flex sm:hidden absolute end-5 top-5 z-10"
+          square
+          padded
+          @click="isOpen = false"
+        />
+         <!-- ==================== Lista kontaktów ==================== -->
+      <div>
+        <div class="p-4 mr-8">
           <input
             v-model="searchQuery"
             type="text"
@@ -28,10 +40,14 @@
           </div>
         </div>
       </div>
+      <!-- ==================================================================== -->
+      </div>
+    </USlideover>
   
       <!-- Główny obszar czatu -->
       <div class="flex-1 flex flex-col">
         <!-- Nagłówek czatu -->
+       
         <div class="p-4 flex justify-between items-center border-b">
           <div v-if="selectedContact" class="flex items-center">
             <img :src="selectedContact.avatar" alt="Avatar" class="w-10 h-10 rounded-full mr-3" />
@@ -44,6 +60,7 @@
             <button class="p-2 hover:bg-green-100 rounded">
               <i class="fas fa-cog"></i>
             </button>
+            <UButton label="Open" @click="isOpen = true" />
           </div>
         </div>
   
@@ -93,7 +110,7 @@
   
   <script setup>
   import { ref, computed, onMounted, nextTick } from 'vue';
-  
+  const isOpen = ref(false);
   const contacts = ref([
     {
       id: 1,

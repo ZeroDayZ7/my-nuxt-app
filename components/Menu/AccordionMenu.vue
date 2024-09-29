@@ -3,8 +3,8 @@
     <Accordion :initialTabs="accordionTabs" :allowMultiple="false">
       <template #tab1>
         <div class="flex flex-col">
-          <UButton class="mt-2" to="/users/profile" icon="i-heroicons-fire" color="blue">Dowód osobisty</UButton>
-          <UButton class="mt-2" to="/test/test" icon="i-heroicons-fire" color="blue">Prawo jazdy</UButton>
+          <UButton class="mt-2" to="/users/Profile" icon="i-heroicons-fire" color="blue">Dowód osobisty</UButton>
+          <UButton class="mt-2" to="/users/DriverLicense" icon="i-heroicons-fire" color="blue">Prawo jazdy</UButton>
           <UButton class="mt-2" to="/test/test" icon="i-heroicons-fire" color="blue" disabled>Paszport</UButton>
           <UButton class="mt-2" to="/test/test" icon="i-heroicons-fire" color="blue" disabled>Legitymacje</UButton>
         </div>
@@ -65,9 +65,6 @@ const accordionTabs = ref([
   { title: 'Dodatkowe funkcje', name: 'tab7', isOpen: false, isDisabled: false }
 ])
 
-const handleClick = () => {
-  console.log('Kliknięto przycisk w zakładce 1')
-}
 </script>
 
 <style scoped>
