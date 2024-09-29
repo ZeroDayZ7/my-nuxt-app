@@ -24,7 +24,8 @@ export default defineNuxtConfig({
     },
   },
   css: [
-    "~/assets/main.css", // Ścieżka do pliku CSS
+    "~/assets/main.css",
+    "~/assets/css/error.css",
   ],
   pwa: {
     registerType: "autoUpdate",

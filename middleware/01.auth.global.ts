@@ -20,8 +20,7 @@ export default defineNuxtRouteMiddleware((to, from) => {
     
   if (to.path !== "/" && !isLoggedIn.value) {
     console.log(`Access Denied`);
-    return abortNavigation('Insufficient permissions.', );
-    // return navigateTo('/403', { redirectCode: 403 })
-    // return navigateTo('/04');
+    return abortNavigation('Insufficient permissions.');
+    // return navigateTo('/');
   }
 });

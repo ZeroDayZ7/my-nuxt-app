@@ -13,50 +13,35 @@
 
 
 <script setup lang="ts">
-import { computed } from 'vue';
-import { useRoute } from 'vue-router';
-
-
-const route = useRoute();
-const { isLoggedIn } = useAuth();
 defineOptions({
   name: "DefaultLayout",
 });
 
+const { isLoggedIn } = useAuth();
+import { updateIsLoggedIn } from '~/utils/localStorageUtils';
+
 const handleCheckboxChange = () => {
-  updateIsLoggedIn(isLoggedIn.value); // Wywołanie funkcji, aby zaktualizować stan i zapisać w localStorage
-  saveToLocalStorage();
+  updateIsLoggedIn(isLoggedIn, isLoggedIn.value);
 };
 
-const updateIsLoggedIn = (value: boolean) => {
-  isLoggedIn.value = value;
-  console.log(`updateIsLoggedIn: ${isLoggedIn.value}`);
-  saveToLocalStorage(); // Zapisz po aktualizacji
-};
+// onMounted(() => {
 
-const saveToLocalStorage = () => {
-  console.log();
-  localStorage.setItem("isLoggedIn", isLoggedIn.value.toString());
-};
+  // console.log(`DEFAULT isLoggedIn: ${isLoggedIn.value}`);
 
-onMounted(() => {
+  // const isLoggedString = localStorage.getItem('isLoggedIn');
+  // if (isLoggedString !== null) {
+  //   // Zamiana na liczbę
+  //   if (isLoggedString === 'false') {
+  //     isLoggedIn.value = false;
+  //   } else {
+  //     isLoggedIn.value = true;
+  //   }
+  // }
 
-  console.log(`DEFAULT isLoggedIn: ${isLoggedIn.value}`);
-
-  const isLoggedString = localStorage.getItem('isLoggedIn');
-  if (isLoggedString !== null) {
-    // Zamiana na liczbę
-    if (isLoggedString === 'false') {
-      isLoggedIn.value = false;
-    } else {
-      isLoggedIn.value = true;
-    }
-  }
-
-  console.log(`DEFAULT LOCALSTORAGE BOOLEAN: ${isLoggedString}`);
-  // Sprawdzenie, czy konwersja się powiodła
+  // console.log(`DEFAULT LOCALSTORAGE BOOLEAN: ${isLoggedString}`);
+  // // Sprawdzenie, czy konwersja się powiodła
 
 
-});
+// });
 
 </script>

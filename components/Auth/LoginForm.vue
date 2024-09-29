@@ -23,6 +23,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { loginUser } from '~/services/auth';
+import { updateIsLoggedIn } from '~/utils/localStorageUtils';
 
 // Definicja interfejsu
 interface AuthResponse {
@@ -30,8 +31,6 @@ interface AuthResponse {
   status?: number;
   message: string;
 }
-
-
 
 const email = ref('yovasec567@fincainc.com');
 const password = ref('Zaq1@wsx');
@@ -70,6 +69,7 @@ const handleLogin = async () => {
     isSubmitting.value = false;
     isOpen.value = false;
     isLoggedIn.value = true;
+    updateIsLoggedIn(isLoggedIn, isLoggedIn.value);
   }, 500);
   return;
 
